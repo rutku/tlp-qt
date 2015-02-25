@@ -19,3 +19,6 @@ TRANSLATIONS = en.ts
 HEADERS  += mainwindow.h
 
 FORMS    += mainwindow.ui
+
+RESOURCES += \
+    data.qrc
