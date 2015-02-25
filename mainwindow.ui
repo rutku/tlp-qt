@@ -1,0 +1,1659 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>714</width>
+    <height>542</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>TLP-Qt Alpha</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout_16">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>Settings</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QScrollArea" name="scrollArea_2">
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents_2">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>672</width>
+             <height>471</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_2">
+            <item>
+             <widget class="QCheckBox" name="cb_tlp_active">
+              <property name="text">
+               <string>TLP Aktif</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>CPU</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QScrollArea" name="scrollArea">
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>658</width>
+             <height>608</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_6">
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_5">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_2">
+                <item>
+                 <widget class="QCheckBox" name="checkBox">
+                  <property name="text">
+                   <string>CPU scaling governor on AC</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBox">
+                  <item>
+                   <property name="text">
+                    <string>ondemand</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_3">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_2">
+                  <property name="text">
+                   <string>CPU scaling governor on Battery</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBox_2">
+                  <item>
+                   <property name="text">
+                    <string>ondemand</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_4">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_3">
+                  <property name="text">
+                   <string>CPU scaling min freq on AC</string>
+                  </property>
+                  <property name="tristate">
+                   <bool>false</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QSpinBox" name="spinBox"/>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_5">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_4">
+                  <property name="text">
+                   <string>CPU scaling max freq on AC</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QSpinBox" name="spinBox_2"/>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_6">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_5">
+                  <property name="text">
+                   <string>CPU scaling min freq on Battery</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QSpinBox" name="spinBox_3"/>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_7">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_6">
+                  <property name="text">
+                   <string>CPU scaling max freq on Battery</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QSpinBox" name="spinBox_4"/>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_8">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_7">
+                  <property name="text">
+                   <string>CPU min perfonmans on AC(%)</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QSpinBox" name="spinBox_5"/>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_9">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_8">
+                  <property name="text">
+                   <string>CPU max perfonmans on AC(%)</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QSpinBox" name="spinBox_6"/>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_10">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_9">
+                  <property name="text">
+                   <string>CPU max perfonmans on Battery(%)</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QSpinBox" name="spinBox_7"/>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_11">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_10">
+                  <property name="text">
+                   <string>CPU Turbo Boost AC</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBox">
+                  <property name="text">
+                   <string>Off</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_12">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_11">
+                  <property name="text">
+                   <string>CPU Turbo Boost Battery</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_18">
+                  <property name="text">
+                   <string>Off</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_13">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_12">
+                  <property name="text">
+                   <string>Schedule  powersave on AC</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_19">
+                  <property name="text">
+                   <string>Off</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_14">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_13">
+                  <property name="text">
+                   <string>Schedule  powersave on Battery</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_20">
+                  <property name="text">
+                   <string>Off</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_15">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_14">
+                  <property name="text">
+                   <string>Kernel NMI Watchdog</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_21">
+                  <property name="text">
+                   <string>Off</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_16">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_15">
+                  <property name="text">
+                   <string>Change CPU voltages</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="lineEdit"/>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_17">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_16">
+                  <property name="text">
+                   <string>CPU performance vs energy savings policy AC</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBox_3">
+                  <item>
+                   <property name="text">
+                    <string>Performance</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Normal</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Powersave</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_18">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_17">
+                  <property name="text">
+                   <string>CPU performance vs energy savings policy Battery</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBox_4">
+                  <item>
+                   <property name="text">
+                    <string>Performance</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Normal</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Powersave</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_3">
+       <attribute name="title">
+        <string>Hard disk</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_8">
+        <item>
+         <widget class="QScrollArea" name="scrollArea_3">
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents_3">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>672</width>
+             <height>471</height>
+            </rect>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_19">
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_7">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_22">
+                  <property name="text">
+                   <string>Hard disk devices</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBox_6">
+                  <property name="editable">
+                   <bool>true</bool>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>sda</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>sdb</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_20">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_23">
+                  <property name="text">
+                   <string>Hdd advanced power management AC</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBox_7">
+                  <property name="editable">
+                   <bool>true</bool>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>1</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>127</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>128</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>254</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>255</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_21">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_24">
+                  <property name="text">
+                   <string>Hdd advanced power management Battery</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBox_8">
+                  <property name="editable">
+                   <bool>true</bool>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>1</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>127</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>128</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>254</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>255</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_22">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_25">
+                  <property name="text">
+                   <string>Hard disk spin down timeout AC</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBox_9">
+                  <property name="editable">
+                   <bool>true</bool>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>0</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>1</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>240</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>241</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>251</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_23">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_26">
+                  <property name="text">
+                   <string>Hard disk spin down timeout Battery</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBox_10">
+                  <property name="editable">
+                   <bool>true</bool>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>0</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>1</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>240</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>241</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>251</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_24">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_27">
+                  <property name="text">
+                   <string>Select IO scheduler</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBox_5">
+                  <property name="editable">
+                   <bool>true</bool>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>noop</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>deadline</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>cfq</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_25">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_28">
+                  <property name="text">
+                   <string>SATA aggressive link power management AC</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBox_11">
+                  <property name="editable">
+                   <bool>true</bool>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>min_power</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>medium_power</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>max_perfonmance</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_26">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_29">
+                  <property name="text">
+                   <string>SATA aggressive link power management Battery</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBox_12">
+                  <property name="editable">
+                   <bool>true</bool>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>min_power</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>medium_power</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>max_perfonmance</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_4">
+       <attribute name="title">
+        <string>PCIe</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="QScrollArea" name="scrollArea_4">
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents_4">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>672</width>
+             <height>471</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_9">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_27">
+              <item>
+               <widget class="QCheckBox" name="checkBox_30">
+                <property name="text">
+                 <string>Active State Power Management AC</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_13">
+                <item>
+                 <property name="text">
+                  <string>default</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>performance</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>powersave</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_28">
+              <item>
+               <widget class="QCheckBox" name="checkBox_31">
+                <property name="text">
+                 <string>Active State Power Management Battery</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_14">
+                <item>
+                 <property name="text">
+                  <string>default</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>performance</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>powersave</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_41">
+              <item>
+               <widget class="QCheckBox" name="checkBox_53">
+                <property name="text">
+                 <string>Runtime Power Management for PCI(e) bus devices</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_54">
+                <property name="text">
+                 <string>On</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_44">
+              <item>
+               <widget class="QCheckBox" name="checkBox_55">
+                <property name="text">
+                 <string>Runtime PM for *all* PCI(e) bus devices, except blacklisted ones</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_56">
+                <property name="text">
+                 <string>Disable</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_45">
+              <item>
+               <widget class="QCheckBox" name="checkBox_57">
+                <property name="text">
+                 <string>Runtime Power Management blacklist (device adresses)</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_2"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_46">
+              <item>
+               <widget class="QCheckBox" name="checkBox_58">
+                <property name="text">
+                 <string>Runtime Power Management blacklist (driver)</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_3"/>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_5">
+       <attribute name="title">
+        <string>Radeon Graphics</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_12">
+        <item>
+         <widget class="QScrollArea" name="scrollArea_5">
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents_5">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>672</width>
+             <height>471</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_11">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_30">
+              <item>
+               <widget class="QCheckBox" name="checkBox_32">
+                <property name="text">
+                 <string>Clock speed AC</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_15">
+                <item>
+                 <property name="text">
+                  <string>low</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>mid</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>high</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>auto</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>default</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_31">
+              <item>
+               <widget class="QCheckBox" name="checkBox_33">
+                <property name="text">
+                 <string>Clock speed Battery</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_16">
+                <item>
+                 <property name="text">
+                  <string>low</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>mid</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>high</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>auto</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>default</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_32">
+              <item>
+               <widget class="QCheckBox" name="checkBox_34">
+                <property name="text">
+                 <string>Dynamic power management AC</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_17">
+                <item>
+                 <property name="text">
+                  <string>battery</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>performance</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_33">
+              <item>
+               <widget class="QCheckBox" name="checkBox_35">
+                <property name="text">
+                 <string>Dynamic power management Battery</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_18">
+                <item>
+                 <property name="text">
+                  <string>battery</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>performance</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_34">
+              <item>
+               <widget class="QCheckBox" name="checkBox_36">
+                <property name="text">
+                 <string>Dynamic power management method level AC</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_19">
+                <item>
+                 <property name="text">
+                  <string>auto</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>low</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>high</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_35">
+              <item>
+               <widget class="QCheckBox" name="checkBox_37">
+                <property name="text">
+                 <string>Dynamic power management method level Battery</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_20">
+                <item>
+                 <property name="text">
+                  <string>auto</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>low</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>high</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_6">
+       <attribute name="title">
+        <string>Wifi</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_14">
+        <item>
+         <widget class="QScrollArea" name="scrollArea_6">
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents_6">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>672</width>
+             <height>471</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_13">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_29">
+              <item>
+               <widget class="QCheckBox" name="checkBox_38">
+                <property name="text">
+                 <string>Power saving mode AC</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_39">
+                <property name="text">
+                 <string>Disable</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_36">
+              <item>
+               <widget class="QCheckBox" name="checkBox_40">
+                <property name="text">
+                 <string>Power saving mode Battery</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_41">
+                <property name="text">
+                 <string>Disable</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_37">
+              <item>
+               <widget class="QCheckBox" name="checkBox_42">
+                <property name="text">
+                 <string>Disable wake on LAN</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_43">
+                <property name="text">
+                 <string>No</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_7">
+       <attribute name="title">
+        <string>Sound</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_10">
+        <item>
+         <widget class="QScrollArea" name="scrollArea_7">
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents_7">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>672</width>
+             <height>471</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_15">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_38">
+              <item>
+               <widget class="QCheckBox" name="checkBox_44">
+                <property name="text">
+                 <string>Audio power saving AC</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_45">
+                <property name="text">
+                 <string>Disable</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_39">
+              <item>
+               <widget class="QCheckBox" name="checkBox_46">
+                <property name="text">
+                 <string>Audio power saving Battery</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_47">
+                <property name="text">
+                 <string>Disable</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_40">
+              <item>
+               <widget class="QCheckBox" name="checkBox_48">
+                <property name="text">
+                 <string>Sound power save controller</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_49">
+                <property name="text">
+                 <string>No</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_8">
+       <attribute name="title">
+        <string>Optical Drive</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_17">
+        <item>
+         <widget class="QScrollArea" name="scrollArea_8">
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents_8">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>672</width>
+             <height>471</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_18">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_42">
+              <item>
+               <widget class="QCheckBox" name="checkBox_50">
+                <property name="text">
+                 <string>Optical drive on battery</string>
+                </property>
+                <property name="tristate">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_51">
+                <property name="text">
+                 <string>Power Off</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_43">
+              <item>
+               <widget class="QCheckBox" name="checkBox_52">
+                <property name="text">
+                 <string>Optical drive device</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_21">
+                <property name="editable">
+                 <bool>true</bool>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>sr0</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_10">
+       <attribute name="title">
+        <string>USB</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_20">
+        <item>
+         <widget class="QScrollArea" name="scrollArea_9">
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents_9">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>672</width>
+             <height>471</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_19">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_47">
+              <item>
+               <widget class="QCheckBox" name="checkBox_59">
+                <property name="text">
+                 <string>USB autosuspend</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_60">
+                <property name="text">
+                 <string>Disable</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_48">
+              <item>
+               <widget class="QCheckBox" name="checkBox_61">
+                <property name="text">
+                 <string>USB autosuspend blacklist(device id)</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_4"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_49">
+              <item>
+               <widget class="QCheckBox" name="checkBox_62">
+                <property name="text">
+                 <string>USB autosuspend blacklist(device)</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_22">
+                <property name="editable">
+                 <bool>true</bool>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>usbhid</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_50">
+              <item>
+               <widget class="QCheckBox" name="checkBox_63">
+                <property name="text">
+                 <string>WWAN devices are excluded from USB autosuspend</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_64">
+                <property name="text">
+                 <string>don't exclude</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_51">
+              <item>
+               <widget class="QCheckBox" name="checkBox_65">
+                <property name="text">
+                 <string>USB autosuspend whitelist(device id)</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_5"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_52">
+              <item>
+               <widget class="QCheckBox" name="checkBox_67">
+                <property name="text">
+                 <string>Autosuspend before shutdown</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_66">
+                <property name="text">
+                 <string>Disable</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_9">
+       <attribute name="title">
+        <string>Radio Devices</string>
+       </attribute>
+       <widget class="QCheckBox" name="checkBox_68">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>20</y>
+          <width>271</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Restore radio device state 
+(Bluetooth, WiFi, WWAN) from 
+previous shutdown on system startup</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_69">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>40</y>
+          <width>90</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Disable</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_70">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>80</y>
+          <width>221</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Radio devices to disable 
+on startup: bluetooth, wifi, wwan.</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_6">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>90</y>
+          <width>113</width>
+          <height>27</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_7">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>150</y>
+          <width>113</width>
+          <height>27</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_71">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>140</y>
+          <width>221</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Radio devices to enable 
+on startup: bluetooth, wifi, wwan.</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_8">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>200</y>
+          <width>113</width>
+          <height>27</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_72">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>190</y>
+          <width>221</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Radio devices to disable 
+on shutdown: bluetooth, wifi, wwan.</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_9">
+        <property name="geometry">
+         <rect>
+          <x>290</x>
+          <y>260</y>
+          <width>113</width>
+          <height>27</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_73">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>250</y>
+          <width>241</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Radio devices to enable 
+on shutdown: bluetooth, wifi, wwan.</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_10">
+        <property name="geometry">
+         <rect>
+          <x>290</x>
+          <y>310</y>
+          <width>113</width>
+          <height>27</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_74">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>300</y>
+          <width>241</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Radio devices to enable 
+on shutdown: bluetooth, wifi, wwan.</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_75">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>350</y>
+          <width>241</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Radio devices to enable 
+on AC: bluetooth, wifi, wwan</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_11">
+        <property name="geometry">
+         <rect>
+          <x>290</x>
+          <y>360</y>
+          <width>113</width>
+          <height>27</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="checkBox_76">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>400</y>
+          <width>241</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Radio devices to disable 
+on battery: bluetooth, wifi, wwan</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEdit_12">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>410</y>
+          <width>113</width>
+          <height>27</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
