@@ -7,18 +7,18 @@
     <x>0</x>
     <y>0</y>
     <width>714</width>
-    <height>542</height>
+    <height>1161</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>TLP-Qt Alpha</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QVBoxLayout" name="verticalLayout_16">
+   <layout class="QHBoxLayout" name="horizontalLayout_227">
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -36,14 +36,14 @@
              <x>0</x>
              <y>0</y>
              <width>672</width>
-             <height>471</height>
+             <height>1090</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
             <item>
              <widget class="QCheckBox" name="cb_tlp_active">
               <property name="text">
-               <string>TLP Aktif</string>
+               <string>TLP Active</string>
               </property>
               <property name="checked">
                <bool>true</bool>
@@ -71,8 +71,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>658</width>
-             <height>608</height>
+             <width>672</width>
+             <height>1090</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -407,7 +407,7 @@
              <x>0</x>
              <y>0</y>
              <width>672</width>
-             <height>471</height>
+             <height>1090</height>
             </rect>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_19">
@@ -736,7 +736,7 @@
              <x>0</x>
              <y>0</y>
              <width>672</width>
-             <height>471</height>
+             <height>1090</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -886,7 +886,7 @@
              <x>0</x>
              <y>0</y>
              <width>672</width>
-             <height>471</height>
+             <height>1090</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_11">
@@ -1102,7 +1102,7 @@
              <x>0</x>
              <y>0</y>
              <width>672</width>
-             <height>471</height>
+             <height>1090</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -1182,7 +1182,7 @@
              <x>0</x>
              <y>0</y>
              <width>672</width>
-             <height>471</height>
+             <height>1090</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -1262,7 +1262,7 @@
              <x>0</x>
              <y>0</y>
              <width>672</width>
-             <height>471</height>
+             <height>1090</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_18">
@@ -1332,7 +1332,7 @@
              <x>0</x>
              <y>0</y>
              <width>672</width>
-             <height>471</height>
+             <height>1090</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -1451,202 +1451,315 @@
        <attribute name="title">
         <string>Radio Devices</string>
        </attribute>
-       <widget class="QCheckBox" name="checkBox_68">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>20</y>
-          <width>271</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Restore radio device state 
+       <layout class="QVBoxLayout" name="verticalLayout_16">
+        <item>
+         <widget class="QScrollArea" name="scrollArea_37">
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents_37">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>672</width>
+             <height>1090</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_78">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_209">
+              <item>
+               <widget class="QCheckBox" name="checkBox_68">
+                <property name="text">
+                 <string>Restore radio device state 
 (Bluetooth, WiFi, WWAN) from 
 previous shutdown on system startup</string>
-        </property>
-       </widget>
-       <widget class="QCheckBox" name="checkBox_69">
-        <property name="geometry">
-         <rect>
-          <x>310</x>
-          <y>40</y>
-          <width>90</width>
-          <height>22</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Disable</string>
-        </property>
-       </widget>
-       <widget class="QCheckBox" name="checkBox_70">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>80</y>
-          <width>221</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Radio devices to disable 
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_69">
+                <property name="text">
+                 <string>Disable</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_210">
+              <item>
+               <widget class="QCheckBox" name="checkBox_70">
+                <property name="text">
+                 <string>Radio devices to disable 
 on startup: bluetooth, wifi, wwan.</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_6">
-        <property name="geometry">
-         <rect>
-          <x>260</x>
-          <y>90</y>
-          <width>113</width>
-          <height>27</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_7">
-        <property name="geometry">
-         <rect>
-          <x>260</x>
-          <y>150</y>
-          <width>113</width>
-          <height>27</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QCheckBox" name="checkBox_71">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>140</y>
-          <width>221</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Radio devices to enable 
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_6"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_211">
+              <item>
+               <widget class="QCheckBox" name="checkBox_71">
+                <property name="text">
+                 <string>Radio devices to enable 
 on startup: bluetooth, wifi, wwan.</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_8">
-        <property name="geometry">
-         <rect>
-          <x>260</x>
-          <y>200</y>
-          <width>113</width>
-          <height>27</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QCheckBox" name="checkBox_72">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>190</y>
-          <width>221</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Radio devices to disable 
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_7"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_212">
+              <item>
+               <widget class="QCheckBox" name="checkBox_72">
+                <property name="text">
+                 <string>Radio devices to disable 
 on shutdown: bluetooth, wifi, wwan.</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_9">
-        <property name="geometry">
-         <rect>
-          <x>290</x>
-          <y>260</y>
-          <width>113</width>
-          <height>27</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QCheckBox" name="checkBox_73">
-        <property name="geometry">
-         <rect>
-          <x>30</x>
-          <y>250</y>
-          <width>241</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Radio devices to enable 
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_8"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_213">
+              <item>
+               <widget class="QCheckBox" name="checkBox_73">
+                <property name="text">
+                 <string>Radio devices to enable 
 on shutdown: bluetooth, wifi, wwan.</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_10">
-        <property name="geometry">
-         <rect>
-          <x>290</x>
-          <y>310</y>
-          <width>113</width>
-          <height>27</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QCheckBox" name="checkBox_74">
-        <property name="geometry">
-         <rect>
-          <x>30</x>
-          <y>300</y>
-          <width>241</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Radio devices to enable 
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_9"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_214">
+              <item>
+               <widget class="QCheckBox" name="checkBox_74">
+                <property name="text">
+                 <string>Radio devices to enable 
 on shutdown: bluetooth, wifi, wwan.</string>
-        </property>
-       </widget>
-       <widget class="QCheckBox" name="checkBox_75">
-        <property name="geometry">
-         <rect>
-          <x>30</x>
-          <y>350</y>
-          <width>241</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Radio devices to enable 
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_10"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_215">
+              <item>
+               <widget class="QCheckBox" name="checkBox_75">
+                <property name="text">
+                 <string>Radio devices to enable 
 on AC: bluetooth, wifi, wwan</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_11">
-        <property name="geometry">
-         <rect>
-          <x>290</x>
-          <y>360</y>
-          <width>113</width>
-          <height>27</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QCheckBox" name="checkBox_76">
-        <property name="geometry">
-         <rect>
-          <x>40</x>
-          <y>400</y>
-          <width>241</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Radio devices to disable 
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_11"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_216">
+              <item>
+               <widget class="QCheckBox" name="checkBox_76">
+                <property name="text">
+                 <string>Radio devices to disable 
 on battery: bluetooth, wifi, wwan</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_12">
-        <property name="geometry">
-         <rect>
-          <x>300</x>
-          <y>410</y>
-          <width>113</width>
-          <height>27</height>
-         </rect>
-        </property>
-       </widget>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_12"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_217">
+              <item>
+               <widget class="QCheckBox" name="checkBox_154">
+                <property name="text">
+                 <string>Radio devices to disable on battery 
+when not in use (not connected):
+bluetooth, wifi, wwan</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_25"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_218">
+              <item>
+               <widget class="QCheckBox" name="checkBox_155">
+                <property name="text">
+                 <string>Radio devices to disable lan connect</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_26"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_219">
+              <item>
+               <widget class="QCheckBox" name="checkBox_156">
+                <property name="text">
+                 <string>Radio devices to disable on wifi 
+connect</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_27"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_220">
+              <item>
+               <widget class="QCheckBox" name="checkBox_157">
+                <property name="text">
+                 <string>Radio devices to disable on wwan 
+connect</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_28"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_221">
+              <item>
+               <widget class="QCheckBox" name="checkBox_158">
+                <property name="text">
+                 <string>Radio devices to enable on 
+ lan disconnect</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_29"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_222">
+              <item>
+               <widget class="QCheckBox" name="checkBox_241">
+                <property name="text">
+                 <string>Radio devices to enable on 
+ wifi disconnect</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_47"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_223">
+              <item>
+               <widget class="QCheckBox" name="checkBox_242">
+                <property name="text">
+                 <string>Radio devices to enable on 
+ wwan disconnect</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_48"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_224">
+              <item>
+               <widget class="QCheckBox" name="checkBox_243">
+                <property name="text">
+                 <string>Radio devices to enable when docked</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_49"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_228">
+              <item>
+               <widget class="QCheckBox" name="checkBox_329">
+                <property name="text">
+                 <string>Radio devices to disable when docked</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_70"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_225">
+              <item>
+               <widget class="QCheckBox" name="checkBox_331">
+                <property name="text">
+                 <string>Radio devices to enable when 
+undocked</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_72"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_226">
+              <item>
+               <widget class="QCheckBox" name="checkBox_330">
+                <property name="text">
+                 <string>Radio devices to disable when 
+docked</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="lineEdit_71"/>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
       </widget>
      </widget>
     </item>
