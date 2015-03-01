@@ -7,18 +7,18 @@
     <x>0</x>
     <y>0</y>
     <width>714</width>
-    <height>1161</height>
+    <height>788</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>TLP-Qt Alpha</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_227">
+   <layout class="QVBoxLayout" name="verticalLayout_6">
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>9</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -36,7 +36,7 @@
              <x>0</x>
              <y>0</y>
              <width>672</width>
-             <height>1090</height>
+             <height>717</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -72,316 +72,326 @@
              <x>0</x>
              <y>0</y>
              <width>672</width>
-             <height>1090</height>
+             <height>717</height>
             </rect>
            </property>
-           <layout class="QVBoxLayout" name="verticalLayout_6">
+           <layout class="QVBoxLayout" name="verticalLayout_5">
             <item>
-             <layout class="QVBoxLayout" name="verticalLayout_5">
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_2">
-                <item>
-                 <widget class="QCheckBox" name="checkBox">
-                  <property name="text">
-                   <string>CPU scaling governor on AC</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QComboBox" name="comboBox">
-                  <item>
-                   <property name="text">
-                    <string>ondemand</string>
-                   </property>
-                  </item>
-                 </widget>
-                </item>
-               </layout>
+               <widget class="QCheckBox" name="checkBox">
+                <property name="text">
+                 <string>CPU scaling governor on AC</string>
+                </property>
+               </widget>
               </item>
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_3">
+               <widget class="QComboBox" name="comboBox">
                 <item>
-                 <widget class="QCheckBox" name="checkBox_2">
-                  <property name="text">
-                   <string>CPU scaling governor on Battery</string>
-                  </property>
-                 </widget>
+                 <property name="text">
+                  <string>ondemand</string>
+                 </property>
                 </item>
-                <item>
-                 <widget class="QComboBox" name="comboBox_2">
-                  <item>
-                   <property name="text">
-                    <string>ondemand</string>
-                   </property>
-                  </item>
-                 </widget>
-                </item>
-               </layout>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
+              <item>
+               <widget class="QCheckBox" name="checkBox_2">
+                <property name="text">
+                 <string>CPU scaling governor on Battery</string>
+                </property>
+               </widget>
               </item>
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_4">
+               <widget class="QComboBox" name="comboBox_2">
                 <item>
-                 <widget class="QCheckBox" name="checkBox_3">
-                  <property name="text">
-                   <string>CPU scaling min freq on AC</string>
-                  </property>
-                  <property name="tristate">
-                   <bool>false</bool>
-                  </property>
-                 </widget>
+                 <property name="text">
+                  <string>ondemand</string>
+                 </property>
                 </item>
-                <item>
-                 <widget class="QSpinBox" name="spinBox"/>
-                </item>
-               </layout>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_4">
+              <item>
+               <widget class="QCheckBox" name="checkBox_3">
+                <property name="text">
+                 <string>CPU scaling min freq on AC</string>
+                </property>
+                <property name="tristate">
+                 <bool>false</bool>
+                </property>
+               </widget>
               </item>
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_5">
-                <item>
-                 <widget class="QCheckBox" name="checkBox_4">
-                  <property name="text">
-                   <string>CPU scaling max freq on AC</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QSpinBox" name="spinBox_2"/>
-                </item>
-               </layout>
+               <widget class="QSpinBox" name="spinBox"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_5">
+              <item>
+               <widget class="QCheckBox" name="checkBox_4">
+                <property name="text">
+                 <string>CPU scaling max freq on AC</string>
+                </property>
+               </widget>
               </item>
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_6">
-                <item>
-                 <widget class="QCheckBox" name="checkBox_5">
-                  <property name="text">
-                   <string>CPU scaling min freq on Battery</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QSpinBox" name="spinBox_3"/>
-                </item>
-               </layout>
+               <widget class="QSpinBox" name="spinBox_2"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_6">
+              <item>
+               <widget class="QCheckBox" name="checkBox_5">
+                <property name="text">
+                 <string>CPU scaling min freq on Battery</string>
+                </property>
+               </widget>
               </item>
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_7">
-                <item>
-                 <widget class="QCheckBox" name="checkBox_6">
-                  <property name="text">
-                   <string>CPU scaling max freq on Battery</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QSpinBox" name="spinBox_4"/>
-                </item>
-               </layout>
+               <widget class="QSpinBox" name="spinBox_3"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_7">
+              <item>
+               <widget class="QCheckBox" name="checkBox_6">
+                <property name="text">
+                 <string>CPU scaling max freq on Battery</string>
+                </property>
+               </widget>
               </item>
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_8">
-                <item>
-                 <widget class="QCheckBox" name="checkBox_7">
-                  <property name="text">
-                   <string>CPU min perfonmans on AC(%)</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QSpinBox" name="spinBox_5"/>
-                </item>
-               </layout>
+               <widget class="QSpinBox" name="spinBox_4"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_8">
+              <item>
+               <widget class="QCheckBox" name="checkBox_7">
+                <property name="text">
+                 <string>CPU min perfonmans on AC(%)</string>
+                </property>
+               </widget>
               </item>
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_9">
-                <item>
-                 <widget class="QCheckBox" name="checkBox_8">
-                  <property name="text">
-                   <string>CPU max perfonmans on AC(%)</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QSpinBox" name="spinBox_6"/>
-                </item>
-               </layout>
+               <widget class="QSpinBox" name="spinBox_5"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_9">
+              <item>
+               <widget class="QCheckBox" name="checkBox_8">
+                <property name="text">
+                 <string>CPU max perfonmans on AC(%)</string>
+                </property>
+               </widget>
               </item>
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_10">
-                <item>
-                 <widget class="QCheckBox" name="checkBox_9">
-                  <property name="text">
-                   <string>CPU max perfonmans on Battery(%)</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QSpinBox" name="spinBox_7"/>
-                </item>
-               </layout>
+               <widget class="QSpinBox" name="spinBox_6"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_53">
+              <item>
+               <widget class="QCheckBox" name="checkBox_77">
+                <property name="text">
+                 <string>CPU min perfonmans on Battery(%)</string>
+                </property>
+               </widget>
               </item>
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_11">
-                <item>
-                 <widget class="QCheckBox" name="checkBox_10">
-                  <property name="text">
-                   <string>CPU Turbo Boost AC</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QCheckBox" name="checkBox">
-                  <property name="text">
-                   <string>Off</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
+               <widget class="QSpinBox" name="spinBox_8"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_10">
+              <item>
+               <widget class="QCheckBox" name="checkBox_9">
+                <property name="text">
+                 <string>CPU max perfonmans on Battery(%)</string>
+                </property>
+               </widget>
               </item>
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_12">
-                <item>
-                 <widget class="QCheckBox" name="checkBox_11">
-                  <property name="text">
-                   <string>CPU Turbo Boost Battery</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QCheckBox" name="checkBox_18">
-                  <property name="text">
-                   <string>Off</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
+               <widget class="QSpinBox" name="spinBox_7"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_11">
+              <item>
+               <widget class="QCheckBox" name="checkBox_10">
+                <property name="text">
+                 <string>CPU Turbo Boost AC</string>
+                </property>
+               </widget>
               </item>
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_13">
-                <item>
-                 <widget class="QCheckBox" name="checkBox_12">
-                  <property name="text">
-                   <string>Schedule  powersave on AC</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QCheckBox" name="checkBox_19">
-                  <property name="text">
-                   <string>Off</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
+               <widget class="QCheckBox" name="checkBox">
+                <property name="text">
+                 <string>Off</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_12">
+              <item>
+               <widget class="QCheckBox" name="checkBox_11">
+                <property name="text">
+                 <string>CPU Turbo Boost Battery</string>
+                </property>
+               </widget>
               </item>
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_14">
-                <item>
-                 <widget class="QCheckBox" name="checkBox_13">
-                  <property name="text">
-                   <string>Schedule  powersave on Battery</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QCheckBox" name="checkBox_20">
-                  <property name="text">
-                   <string>Off</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
+               <widget class="QCheckBox" name="checkBox_18">
+                <property name="text">
+                 <string>Off</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_13">
+              <item>
+               <widget class="QCheckBox" name="checkBox_12">
+                <property name="text">
+                 <string>Schedule  powersave on AC</string>
+                </property>
+               </widget>
               </item>
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_15">
-                <item>
-                 <widget class="QCheckBox" name="checkBox_14">
-                  <property name="text">
-                   <string>Kernel NMI Watchdog</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QCheckBox" name="checkBox_21">
-                  <property name="text">
-                   <string>Off</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
+               <widget class="QCheckBox" name="checkBox_19">
+                <property name="text">
+                 <string>Off</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_14">
+              <item>
+               <widget class="QCheckBox" name="checkBox_13">
+                <property name="text">
+                 <string>Schedule  powersave on Battery</string>
+                </property>
+               </widget>
               </item>
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_16">
-                <item>
-                 <widget class="QCheckBox" name="checkBox_15">
-                  <property name="text">
-                   <string>Change CPU voltages</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLineEdit" name="lineEdit"/>
-                </item>
-               </layout>
+               <widget class="QCheckBox" name="checkBox_20">
+                <property name="text">
+                 <string>Off</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_15">
+              <item>
+               <widget class="QCheckBox" name="checkBox_14">
+                <property name="text">
+                 <string>Kernel NMI Watchdog</string>
+                </property>
+               </widget>
               </item>
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_17">
-                <item>
-                 <widget class="QCheckBox" name="checkBox_16">
-                  <property name="text">
-                   <string>CPU performance vs energy savings policy AC</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QComboBox" name="comboBox_3">
-                  <item>
-                   <property name="text">
-                    <string>Performance</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Normal</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Powersave</string>
-                   </property>
-                  </item>
-                 </widget>
-                </item>
-               </layout>
+               <widget class="QCheckBox" name="checkBox_21">
+                <property name="text">
+                 <string>Off</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_16">
+              <item>
+               <widget class="QCheckBox" name="checkBox_15">
+                <property name="text">
+                 <string>Change CPU voltages</string>
+                </property>
+               </widget>
               </item>
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_18">
+               <widget class="QLineEdit" name="lineEdit"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_17">
+              <item>
+               <widget class="QCheckBox" name="checkBox_16">
+                <property name="text">
+                 <string>CPU performance vs energy savings policy AC</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_3">
                 <item>
-                 <widget class="QCheckBox" name="checkBox_17">
-                  <property name="text">
-                   <string>CPU performance vs energy savings policy Battery</string>
-                  </property>
-                 </widget>
+                 <property name="text">
+                  <string>Performance</string>
+                 </property>
                 </item>
                 <item>
-                 <widget class="QComboBox" name="comboBox_4">
-                  <item>
-                   <property name="text">
-                    <string>Performance</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Normal</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Powersave</string>
-                   </property>
-                  </item>
-                 </widget>
+                 <property name="text">
+                  <string>Normal</string>
+                 </property>
                 </item>
-               </layout>
+                <item>
+                 <property name="text">
+                  <string>Powersave</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_18">
+              <item>
+               <widget class="QCheckBox" name="checkBox_17">
+                <property name="text">
+                 <string>CPU performance vs energy savings policy Battery</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_4">
+                <item>
+                 <property name="text">
+                  <string>Performance</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Normal</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Powersave</string>
+                 </property>
+                </item>
+               </widget>
               </item>
              </layout>
             </item>
@@ -407,7 +417,7 @@
              <x>0</x>
              <y>0</y>
              <width>672</width>
-             <height>1090</height>
+             <height>717</height>
             </rect>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_19">
@@ -736,7 +746,7 @@
              <x>0</x>
              <y>0</y>
              <width>672</width>
-             <height>1090</height>
+             <height>717</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -805,12 +815,30 @@
               <item>
                <widget class="QCheckBox" name="checkBox_53">
                 <property name="text">
-                 <string>Runtime Power Management for PCI(e) bus devices</string>
+                 <string>Runtime Power Management for PCI(e) bus devices AC</string>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QCheckBox" name="checkBox_54">
+                <property name="text">
+                 <string>On</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_54">
+              <item>
+               <widget class="QCheckBox" name="checkBox_78">
+                <property name="text">
+                 <string>Runtime Power Management for PCI(e) bus devices battery</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox_79">
                 <property name="text">
                  <string>On</string>
                 </property>
@@ -886,7 +914,7 @@
              <x>0</x>
              <y>0</y>
              <width>672</width>
-             <height>1090</height>
+             <height>717</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_11">
@@ -1102,7 +1130,7 @@
              <x>0</x>
              <y>0</y>
              <width>672</width>
-             <height>1090</height>
+             <height>717</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -1182,7 +1210,7 @@
              <x>0</x>
              <y>0</y>
              <width>672</width>
-             <height>1090</height>
+             <height>717</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -1262,7 +1290,7 @@
              <x>0</x>
              <y>0</y>
              <width>672</width>
-             <height>1090</height>
+             <height>717</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_18">
@@ -1332,7 +1360,7 @@
              <x>0</x>
              <y>0</y>
              <width>672</width>
-             <height>1090</height>
+             <height>717</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -1462,8 +1490,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>672</width>
-             <height>1090</height>
+             <width>658</width>
+             <height>839</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_78">
@@ -1544,21 +1572,6 @@ on shutdown: bluetooth, wifi, wwan.</string>
               </item>
               <item>
                <widget class="QLineEdit" name="lineEdit_9"/>
-              </item>
-             </layout>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_214">
-              <item>
-               <widget class="QCheckBox" name="checkBox_74">
-                <property name="text">
-                 <string>Radio devices to enable 
-on shutdown: bluetooth, wifi, wwan.</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLineEdit" name="lineEdit_10"/>
               </item>
              </layout>
             </item>
@@ -1746,7 +1759,7 @@ undocked</string>
                <widget class="QCheckBox" name="checkBox_330">
                 <property name="text">
                  <string>Radio devices to disable when 
-docked</string>
+undocked</string>
                 </property>
                </widget>
               </item>

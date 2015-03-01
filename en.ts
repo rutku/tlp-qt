@@ -15,7 +15,8 @@
     </message>
     <message>
         <location filename="mainwindow.ui" line="46"/>
-        <source>TLP Aktif</source>
+        <source>TLP Active</source>
+        <oldsource>TLP Aktif</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -345,7 +346,7 @@
         <location filename="mainwindow.ui" line="1219"/>
         <location filename="mainwindow.ui" line="1351"/>
         <location filename="mainwindow.ui" line="1438"/>
-        <location filename="mainwindow.ui" line="1479"/>
+        <location filename="mainwindow.ui" line="1484"/>
         <source>Disable</source>
         <translation type="unfinished"></translation>
     </message>
@@ -552,47 +553,111 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1464"/>
+        <location filename="mainwindow.ui" line="1475"/>
         <source>Restore radio device state 
 (Bluetooth, WiFi, WWAN) from 
 previous shutdown on system startup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1492"/>
+        <location filename="mainwindow.ui" line="1495"/>
         <source>Radio devices to disable 
 on startup: bluetooth, wifi, wwan.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1526"/>
+        <location filename="mainwindow.ui" line="1510"/>
         <source>Radio devices to enable 
 on startup: bluetooth, wifi, wwan.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1550"/>
+        <location filename="mainwindow.ui" line="1525"/>
         <source>Radio devices to disable 
 on shutdown: bluetooth, wifi, wwan.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1574"/>
-        <location filename="mainwindow.ui" line="1598"/>
+        <location filename="mainwindow.ui" line="1540"/>
+        <location filename="mainwindow.ui" line="1555"/>
         <source>Radio devices to enable 
 on shutdown: bluetooth, wifi, wwan.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1612"/>
+        <location filename="mainwindow.ui" line="1570"/>
         <source>Radio devices to enable 
 on AC: bluetooth, wifi, wwan</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1636"/>
+        <location filename="mainwindow.ui" line="1585"/>
         <source>Radio devices to disable 
 on battery: bluetooth, wifi, wwan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="1600"/>
+        <source>Radio devices to disable on battery 
+when not in use (not connected):
+bluetooth, wifi, wwan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="1616"/>
+        <source>Radio devices to disable lan connect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="1630"/>
+        <source>Radio devices to disable on wifi 
+connect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="1645"/>
+        <source>Radio devices to disable on wwan 
+connect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="1660"/>
+        <source>Radio devices to enable on 
+ lan disconnect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="1675"/>
+        <source>Radio devices to enable on 
+ wifi disconnect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="1690"/>
+        <source>Radio devices to enable on 
+ wwan disconnect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="1705"/>
+        <source>Radio devices to enable when docked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="1719"/>
+        <source>Radio devices to disable when docked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="1733"/>
+        <source>Radio devices to enable when 
+undocked</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="1748"/>
+        <source>Radio devices to disable when 
+docked</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
