@@ -169,6 +169,14 @@ private slots:
 
     void on_checkBox_69_clicked();
 
+    void on_checkBox_81_clicked();
+
+    void on_checkBox_82_clicked();
+
+    void on_checkBox_83_clicked();
+
+    void on_checkBox_84_clicked();
+
 private:
     Ui::MainWindow *ui;
     QStringList data;

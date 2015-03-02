@@ -43,7 +43,8 @@ void MainWindow::loadMarkedLines()
     <<"DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE"<<"DEVICES_TO_DISABLE_ON_LAN_CONNECT"<<"DEVICES_TO_DISABLE_ON_WIFI_CONNECT"
     <<"DEVICES_TO_DISABLE_ON_WWAN_CONNECT"<<"DEVICES_TO_ENABLE_ON_LAN_DISCONNECT"<<"DEVICES_TO_ENABLE_ON_WIFI_DISCONNECT"
     <<"DEVICES_TO_ENABLE_ON_WWAN_DISCONNECT"<<"DEVICES_TO_ENABLE_ON_DOCK"<<"DEVICES_TO_DISABLE_ON_DOCK"
-    <<"DEVICES_TO_ENABLE_ON_UNDOCK"<<"DEVICES_TO_DISABLE_ON_UNDOCK";
+    <<"DEVICES_TO_ENABLE_ON_UNDOCK"<<"DEVICES_TO_DISABLE_ON_UNDOCK"<<"START_CHARGE_THRESH_BAT0"
+    <<"STOP_CHARGE_THRESH_BAT0"<<"START_CHARGE_THRESH_BAT1"<<"STOP_CHARGE_THRESH_BAT1";
 
     for (int i = 0; i < markedLines.size(); ++i) {
         values.insert(markedLines.at(i),"");
@@ -1249,6 +1250,50 @@ void MainWindow::prepareGui()
         ui->lineEdit_71->setEnabled(false);
         ui->checkBox_330->setChecked(false);
     }
+    if (valueActive["START_CHARGE_THRESH_BAT0"])
+    {
+        ui->spinBox_11->setEnabled(true);
+        ui->checkBox_81->setChecked(true);
+        ui->spinBox_11->setValue(values["START_CHARGE_THRESH_BAT0"].toInt(0));
+    }
+    else
+    {
+        ui->spinBox_11->setEnabled(false);
+        ui->checkBox_81->setChecked(false);
+    }
+    if (valueActive["STOP_CHARGE_THRESH_BAT0"])
+    {
+        ui->spinBox_12->setEnabled(true);
+        ui->checkBox_82->setChecked(true);
+        ui->spinBox_12->setValue(values["STOP_CHARGE_THRESH_BAT0"].toInt(0));
+    }
+    else
+    {
+        ui->spinBox_12->setEnabled(false);
+        ui->checkBox_82->setChecked(false);
+    }
+    if (valueActive["START_CHARGE_THRESH_BAT1"])
+    {
+        ui->spinBox_13->setEnabled(true);
+        ui->checkBox_83->setChecked(true);
+        ui->spinBox_13->setValue(values["START_CHARGE_THRESH_BAT1"].toInt(0));
+    }
+    else
+    {
+        ui->spinBox_13->setEnabled(false);
+        ui->checkBox_83->setChecked(false);
+    }
+    if (valueActive["STOP_CHARGE_THRESH_BAT1"])
+    {
+        ui->spinBox_14->setEnabled(true);
+        ui->checkBox_84->setChecked(true);
+        ui->spinBox_14->setValue(values["STOP_CHARGE_THRESH_BAT1"].toInt(0));
+    }
+    else
+    {
+        ui->spinBox_14->setEnabled(false);
+        ui->checkBox_84->setChecked(false);
+    }
 }
 
 void MainWindow::setActivate(bool b, QString value)
@@ -1625,4 +1670,24 @@ void MainWindow::on_checkBox_330_clicked()
 void MainWindow::on_checkBox_69_clicked()
 {
 
+}
+
+void MainWindow::on_checkBox_81_clicked()
+{
+    setActivate(ui->checkBox_81->isChecked(),"START_CHARGE_THRESH_BAT0");
+}
+
+void MainWindow::on_checkBox_82_clicked()
+{
+    setActivate(ui->checkBox_82->isChecked(),"STOP_CHARGE_THRESH_BAT0");
+}
+
+void MainWindow::on_checkBox_83_clicked()
+{
+    setActivate(ui->checkBox_83->isChecked(),"START_CHARGE_THRESH_BAT1");
+}
+
+void MainWindow::on_checkBox_84_clicked()
+{
+    setActivate(ui->checkBox_84->isChecked(),"STOP_CHARGE_THRESH_BAT1");
 }

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>714</width>
+    <width>764</width>
     <height>506</height>
    </rect>
   </property>
@@ -14,11 +14,11 @@
    <string>TLP-Qt Alpha</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QVBoxLayout" name="verticalLayout_6">
+   <layout class="QHBoxLayout" name="horizontalLayout_61">
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>3</number>
+       <number>10</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -35,7 +35,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>672</width>
+             <width>722</width>
              <height>435</height>
             </rect>
            </property>
@@ -117,7 +117,7 @@ goes idle before doing a sync (BAT)</string>
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>658</width>
+             <width>708</width>
              <height>641</height>
             </rect>
            </property>
@@ -527,7 +527,7 @@ goes idle before doing a sync (BAT)</string>
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>672</width>
+             <width>722</width>
              <height>435</height>
             </rect>
            </property>
@@ -856,7 +856,7 @@ goes idle before doing a sync (BAT)</string>
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>672</width>
+             <width>722</width>
              <height>435</height>
             </rect>
            </property>
@@ -1024,7 +1024,7 @@ goes idle before doing a sync (BAT)</string>
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>672</width>
+             <width>722</width>
              <height>435</height>
             </rect>
            </property>
@@ -1240,7 +1240,7 @@ goes idle before doing a sync (BAT)</string>
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>672</width>
+             <width>722</width>
              <height>435</height>
             </rect>
            </property>
@@ -1320,7 +1320,7 @@ goes idle before doing a sync (BAT)</string>
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>672</width>
+             <width>722</width>
              <height>435</height>
             </rect>
            </property>
@@ -1400,7 +1400,7 @@ goes idle before doing a sync (BAT)</string>
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>672</width>
+             <width>722</width>
              <height>435</height>
             </rect>
            </property>
@@ -1470,7 +1470,7 @@ goes idle before doing a sync (BAT)</string>
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>672</width>
+             <width>722</width>
              <height>435</height>
             </rect>
            </property>
@@ -1601,7 +1601,7 @@ goes idle before doing a sync (BAT)</string>
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>658</width>
+             <width>708</width>
              <height>839</height>
             </rect>
            </property>
@@ -1876,6 +1876,101 @@ undocked</string>
               </item>
               <item>
                <widget class="QLineEdit" name="lineEdit_71"/>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_11">
+       <attribute name="title">
+        <string>ThinkPad™</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <item>
+         <widget class="QScrollArea" name="scrollArea_10">
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents_10">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>722</width>
+             <height>435</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_21">
+            <item>
+             <widget class="QLabel" name="label_3">
+              <property name="maximumSize">
+               <size>
+                <width>50000</width>
+                <height>20</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Charging starts when the remaining capacity falls below</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_60">
+              <item>
+               <widget class="QCheckBox" name="checkBox_81">
+                <property name="text">
+                 <string>Main / Internal battery (values in %) (Start Charge)</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSpinBox" name="spinBox_11"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_59">
+              <item>
+               <widget class="QCheckBox" name="checkBox_82">
+                <property name="text">
+                 <string>Main / Internal battery (values in %) (Stop Charge)</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSpinBox" name="spinBox_12"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_57">
+              <item>
+               <widget class="QCheckBox" name="checkBox_83">
+                <property name="text">
+                 <string>Ultrabay / Slice / Replaceable battery (values in %)(Start Charge)</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSpinBox" name="spinBox_13"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_58">
+              <item>
+               <widget class="QCheckBox" name="checkBox_84">
+                <property name="text">
+                 <string>Ultrabay / Slice / Replaceable battery (values in %)(Stop Charge)</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSpinBox" name="spinBox_14"/>
               </item>
              </layout>
             </item>
