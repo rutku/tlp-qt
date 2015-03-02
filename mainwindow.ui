@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>714</width>
-    <height>788</height>
+    <height>506</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>9</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -36,7 +36,7 @@
              <x>0</x>
              <y>0</y>
              <width>672</width>
-             <height>717</height>
+             <height>435</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -71,15 +71,15 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>672</width>
-             <height>717</height>
+             <width>658</width>
+             <height>641</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_5">
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_2">
               <item>
-               <widget class="QCheckBox" name="checkBox">
+               <widget class="QCheckBox" name="cb_cpu_scaling_governor_on_ac">
                 <property name="text">
                  <string>CPU scaling governor on AC</string>
                 </property>
@@ -87,9 +87,27 @@
               </item>
               <item>
                <widget class="QComboBox" name="comboBox">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
                 <item>
                  <property name="text">
                   <string>ondemand</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>powersave</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>performance</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>conservative</string>
                  </property>
                 </item>
                </widget>
@@ -112,6 +130,21 @@
                   <string>ondemand</string>
                  </property>
                 </item>
+                <item>
+                 <property name="text">
+                  <string>powersave</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>performance</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>conservative</string>
+                 </property>
+                </item>
                </widget>
               </item>
              </layout>
@@ -129,7 +162,11 @@
                </widget>
               </item>
               <item>
-               <widget class="QSpinBox" name="spinBox"/>
+               <widget class="QSpinBox" name="spinBox">
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+               </widget>
               </item>
              </layout>
             </item>
@@ -143,7 +180,11 @@
                </widget>
               </item>
               <item>
-               <widget class="QSpinBox" name="spinBox_2"/>
+               <widget class="QSpinBox" name="spinBox_2">
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+               </widget>
               </item>
              </layout>
             </item>
@@ -157,7 +198,11 @@
                </widget>
               </item>
               <item>
-               <widget class="QSpinBox" name="spinBox_3"/>
+               <widget class="QSpinBox" name="spinBox_3">
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+               </widget>
               </item>
              </layout>
             </item>
@@ -171,7 +216,11 @@
                </widget>
               </item>
               <item>
-               <widget class="QSpinBox" name="spinBox_4"/>
+               <widget class="QSpinBox" name="spinBox_4">
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+               </widget>
               </item>
              </layout>
             </item>
@@ -185,7 +234,11 @@
                </widget>
               </item>
               <item>
-               <widget class="QSpinBox" name="spinBox_5"/>
+               <widget class="QSpinBox" name="spinBox_5">
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+               </widget>
               </item>
              </layout>
             </item>
@@ -199,7 +252,11 @@
                </widget>
               </item>
               <item>
-               <widget class="QSpinBox" name="spinBox_6"/>
+               <widget class="QSpinBox" name="spinBox_6">
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+               </widget>
               </item>
              </layout>
             </item>
@@ -213,7 +270,11 @@
                </widget>
               </item>
               <item>
-               <widget class="QSpinBox" name="spinBox_8"/>
+               <widget class="QSpinBox" name="spinBox_8">
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+               </widget>
               </item>
              </layout>
             </item>
@@ -227,7 +288,11 @@
                </widget>
               </item>
               <item>
-               <widget class="QSpinBox" name="spinBox_7"/>
+               <widget class="QSpinBox" name="spinBox_7">
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+               </widget>
               </item>
              </layout>
             </item>
@@ -417,7 +482,7 @@
              <x>0</x>
              <y>0</y>
              <width>672</width>
-             <height>717</height>
+             <height>435</height>
             </rect>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_19">
@@ -746,7 +811,7 @@
              <x>0</x>
              <y>0</y>
              <width>672</width>
-             <height>717</height>
+             <height>435</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -914,7 +979,7 @@
              <x>0</x>
              <y>0</y>
              <width>672</width>
-             <height>717</height>
+             <height>435</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_11">
@@ -1130,7 +1195,7 @@
              <x>0</x>
              <y>0</y>
              <width>672</width>
-             <height>717</height>
+             <height>435</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -1210,7 +1275,7 @@
              <x>0</x>
              <y>0</y>
              <width>672</width>
-             <height>717</height>
+             <height>435</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -1290,7 +1355,7 @@
              <x>0</x>
              <y>0</y>
              <width>672</width>
-             <height>717</height>
+             <height>435</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_18">
@@ -1360,7 +1425,7 @@
              <x>0</x>
              <y>0</y>
              <width>672</width>
-             <height>717</height>
+             <height>435</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_19">

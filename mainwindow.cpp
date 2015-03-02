@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     loadMarkedLines();
     readConfig();
+    prepareGui();
 }
 
 MainWindow::~MainWindow()
@@ -47,7 +48,7 @@ void MainWindow::loadMarkedLines()
     for (int i = 0; i < markedLines.size(); ++i) {
         values.insert(markedLines.at(i),"");
         valueActive.insert(markedLines.at(i),false);
-        //qDebug()<<markedLines.at(i);
+//        qDebug()<<markedLines.at(i).toLower();
     }
 }
 
@@ -68,21 +69,888 @@ void MainWindow::readConfig()
             if (isThere) {
                 if (line.at(0)!='#')
                     valueActive[word]=true;
+
+                QStringList splitLine = line.split("=");
+                values[word]=splitLine.at(1);
+
             }
 
         }
     }
 }
 
+void MainWindow::prepareGui()
+{
+    if (valueActive["CPU_SCALING_GOVERNOR_ON_AC"])
+    {
+        ui->comboBox->setEnabled(true);
+        ui->cb_cpu_scaling_governor_on_ac->setChecked(true);
+
+        for (int i = 0; i < ui->comboBox->count(); ++i) {
+            if (ui->comboBox->itemText(i)==values["CPU_SCALING_GOVERNOR_ON_AC"]) {
+                ui->comboBox->setCurrentIndex(i);
+            }
+        }
+    }
+    else
+    {
+        ui->comboBox->setEnabled(false);
+        ui->cb_cpu_scaling_governor_on_ac->setChecked(false);
+    }
+
+    if (valueActive["CPU_SCALING_GOVERNOR_ON_BAT"])
+    {
+        ui->comboBox_2->setEnabled(true);
+        ui->checkBox_2->setChecked(true);
+        for (int i = 0; i < ui->comboBox_2->count(); ++i) {
+            if (ui->comboBox_2->itemText(i)==values["CPU_SCALING_GOVERNOR_ON_BAT"]) {
+                ui->comboBox_2->setCurrentIndex(i);
+            }
+        }
+    }
+    else
+    {
+        ui->comboBox_2->setEnabled(false);
+        ui->checkBox_2->setChecked(false);
+    }
+
+    if (valueActive["CPU_SCALING_MIN_FREQ_ON_AC"])
+    {
+        ui->spinBox->setEnabled(true);
+        ui->checkBox_3->setChecked(true);
+        ui->spinBox->setValue(values["CPU_SCALING_MIN_FREQ_ON_AC"].toInt(0));
+    }
+    else
+    {
+        ui->spinBox->setEnabled(false);
+        ui->checkBox_3->setChecked(false);
+    }
+
+
+    if (valueActive["CPU_SCALING_MAX_FREQ_ON_AC"])
+    {
+        ui->spinBox_2->setEnabled(true);
+        ui->checkBox_4->setChecked(true);
+        ui->spinBox_2->setValue(values["CPU_SCALING_MAX_FREQ_ON_AC"].toInt(0));
+
+    }
+    else
+    {
+        ui->spinBox_2->setEnabled(false);
+        ui->checkBox_4->setChecked(false);
+    }
+
+    if (valueActive["CPU_SCALING_MIN_FREQ_ON_BAT"])
+    {
+        ui->spinBox_3->setEnabled(true);
+        ui->checkBox_5->setChecked(true);
+        ui->spinBox_3->setValue(values["CPU_SCALING_MIN_FREQ_ON_BAT"].toInt(0));
+
+    }
+    else
+    {
+        ui->spinBox_3->setEnabled(false);
+        ui->checkBox_5->setChecked(false);
+    }
+
+    if (valueActive["CPU_SCALING_MAX_FREQ_ON_BAT"])
+    {
+        ui->spinBox_4->setEnabled(true);
+        ui->checkBox_6->setChecked(true);
+        ui->spinBox_4->setValue(values["CPU_SCALING_MAX_FREQ_ON_BAT"].toInt(0));
+    }
+    else
+    {
+        ui->spinBox_4->setEnabled(false);
+        ui->checkBox_6->setChecked(false);
+    }
+
+    if (valueActive["CPU_MIN_PERF_ON_AC"])
+    {
+        ui->spinBox_5->setEnabled(true);
+        ui->checkBox_7->setChecked(true);
+        ui->spinBox_5->setValue(values["CPU_MIN_PERF_ON_AC"].toInt(0));
+
+    }
+    else
+    {
+        ui->spinBox_5->setEnabled(false);
+        ui->checkBox_7->setChecked(false);
+    }
+
+    if (valueActive["CPU_MAX_PERF_ON_AC"])
+    {
+        ui->spinBox_6->setEnabled(true);
+        ui->checkBox_8->setChecked(true);
+        ui->spinBox_6->setValue(values["CPU_MAX_PERF_ON_AC"].toInt(0));
+
+    }
+    else
+    {
+        ui->spinBox_6->setEnabled(false);
+        ui->checkBox_8->setChecked(false);
+    }
+
+    if (valueActive["CPU_MIN_PERF_ON_BAT"])
+    {
+        ui->spinBox_8->setEnabled(true);
+        ui->checkBox_77->setChecked(true);
+        ui->spinBox_8->setValue(values["CPU_MIN_PERF_ON_BAT"].toInt(0));
+
+    }
+    else
+    {
+        ui->spinBox_8->setEnabled(false);
+        ui->checkBox_77->setChecked(false);
+    }
+
+    if (valueActive["CPU_MAX_PERF_ON_BAT"])
+    {
+        ui->spinBox_7->setEnabled(true);
+        ui->checkBox_9->setChecked(true);
+        ui->spinBox_7->setValue(values["CPU_MAX_PERF_ON_BAT"].toInt(0));
+
+    }
+    else
+    {
+        ui->spinBox_7->setEnabled(false);
+        ui->checkBox_9->setChecked(false);
+    }
+
+    if (valueActive["CPU_BOOST_ON_AC"])
+    {
+        ui->checkBox->setEnabled(true);
+        ui->checkBox_10->setChecked(true);
+        if (values["CPU_BOOST_ON_AC"]=="0") {
+            ui->checkBox->setChecked(false);
+            ui->checkBox->setText("disable");
+        }else
+        {
+            ui->checkBox->setChecked(true);
+            ui->checkBox->setText("allow");
+        }
+
+    }
+    else
+    {
+        ui->checkBox->setEnabled(false);
+        ui->checkBox_10->setChecked(false);
+    }
+
+    if (valueActive["CPU_BOOST_ON_BAT"])
+    {
+        ui->checkBox_18->setEnabled(true);
+        ui->checkBox_11->setChecked(true);
+        if (values["CPU_BOOST_ON_BAT"]=="0") {
+            ui->checkBox_18->setChecked(false);
+            ui->checkBox_18->setText("disable");
+        }else
+        {
+            ui->checkBox_18->setChecked(true);
+            ui->checkBox_18->setText("allow");
+        }
+    }
+    else
+    {
+        ui->checkBox_18->setEnabled(false);
+        ui->checkBox_11->setChecked(false);
+    }
+
+    if (valueActive["SCHED_POWERSAVE_ON_AC"])
+    {
+        ui->checkBox_19->setEnabled(true);
+        ui->checkBox_12->setChecked(true);
+        if (values["SCHED_POWERSAVE_ON_AC"]=="0") {
+            ui->checkBox_19->setChecked(false);
+            ui->checkBox_19->setText("disable");
+        }else
+        {
+            ui->checkBox_19->setChecked(true);
+            ui->checkBox_19->setText("allow");
+        }
+    }
+    else
+    {
+        ui->checkBox_19->setEnabled(false);
+        ui->checkBox_12->setChecked(false);
+    }
+
+    if (valueActive["SCHED_POWERSAVE_ON_BAT"])
+    {
+        ui->checkBox_20->setEnabled(true);
+        ui->checkBox_13->setChecked(true);
+
+        if (values["SCHED_POWERSAVE_ON_BAT"]=="0") {
+            ui->checkBox_20->setChecked(false);
+            ui->checkBox_20->setText("disable");
+        }else
+        {
+            ui->checkBox_20->setChecked(true);
+            ui->checkBox_20->setText("allow");
+        }
+    }
+    else
+    {
+        ui->checkBox_20->setEnabled(false);
+        ui->checkBox_13->setChecked(false);
+    }
+
+    if (valueActive["NMI_WATCHDOG"])
+    {
+        ui->checkBox_21->setEnabled(true);
+        ui->checkBox_14->setChecked(true);
+        if (values["NMI_WATCHDOG"]=="0") {
+            ui->checkBox_21->setChecked(false);
+            ui->checkBox_21->setText("disable");
+        }else
+        {
+            ui->checkBox_21->setChecked(true);
+            ui->checkBox_21->setText("enable");
+        }
+    }
+    else
+    {
+        ui->checkBox_21->setEnabled(false);
+        ui->checkBox_14->setChecked(false);
+    }
+
+    if (valueActive["PHC_CONTROLS"])
+    {
+        ui->lineEdit->setEnabled(true);
+        ui->checkBox_15->setChecked(true);
+        ui->lineEdit->setText(values["PHC_CONTROLS"]);
+    }
+    else
+    {
+        ui->lineEdit->setEnabled(false);
+        ui->checkBox_15->setChecked(false);
+    }
+
+    if (valueActive["ENERGY_PERF_POLICY_ON_AC"])
+    {
+        ui->comboBox_3->setEnabled(true);
+        ui->checkBox_16->setChecked(true);
+        for (int i = 0; i < ui->comboBox_3->count(); ++i) {
+            if (ui->comboBox_3->itemText(i)==values["ENERGY_PERF_POLICY_ON_AC"]) {
+                ui->comboBox_3->setCurrentIndex(i);
+            }
+        }
+    }
+    else
+    {
+        ui->comboBox_3->setEnabled(false);
+        ui->checkBox_16->setChecked(false);
+    }
+
+    if (valueActive["ENERGY_PERF_POLICY_ON_BAT"])
+    {
+        ui->comboBox_4->setEnabled(true);
+        ui->checkBox_17->setChecked(true);
+        for (int i = 0; i < ui->comboBox_4->count(); ++i) {
+            if (ui->comboBox_4->itemText(i)==values["ENERGY_PERF_POLICY_ON_BAT"]) {
+                ui->comboBox_4->setCurrentIndex(i);
+            }
+        }
+    }
+    else
+    {
+        ui->comboBox_4->setEnabled(false);
+        ui->checkBox_17->setChecked(false);
+    }
+
+    if (valueActive["DISK_DEVICES"])
+    {
+        ui->comboBox_6->setEnabled(true);
+        ui->checkBox_22->setChecked(true);
+    }
+    else
+    {
+        ui->comboBox_6->setEnabled(false);
+        ui->checkBox_22->setChecked(false);
+    }
+
+    if (valueActive["DISK_APM_LEVEL_ON_AC"])
+    {
+        ui->comboBox_7->setEnabled(true);
+        ui->checkBox_23->setChecked(true);
+    }
+    else
+    {
+        ui->comboBox_7->setEnabled(false);
+        ui->checkBox_23->setChecked(false);
+    }
+
+    if (valueActive["DISK_APM_LEVEL_ON_BAT"])
+    {
+        ui->comboBox_8->setEnabled(true);
+        ui->checkBox_24->setChecked(true);
+    }
+    else
+    {
+        ui->comboBox_8->setEnabled(false);
+        ui->checkBox_24->setChecked(false);
+    }
+
+    if (valueActive["DISK_SPINDOWN_TIMEOUT_ON_AC"])
+    {
+        ui->comboBox_9->setEnabled(true);
+        ui->checkBox_25->setChecked(true);
+    }
+    else
+    {
+        ui->comboBox_9->setEnabled(false);
+        ui->checkBox_25->setChecked(false);
+    }
+
+    if (valueActive["DISK_SPINDOWN_TIMEOUT_ON_AC"])
+    {
+        ui->comboBox_10->setEnabled(true);
+        ui->checkBox_26->setChecked(true);
+    }
+    else
+    {
+        ui->comboBox_10->setEnabled(false);
+        ui->checkBox_26->setChecked(false);
+    }
+
+    if (valueActive["DISK_IOSCHED"])
+    {
+        ui->comboBox_5->setEnabled(true);
+        ui->checkBox_27->setChecked(true);
+    }
+    else
+    {
+        ui->comboBox_5->setEnabled(false);
+        ui->checkBox_27->setChecked(false);
+    }
+
+    if (valueActive["SATA_LINKPWR_ON_AC"])
+    {
+        ui->comboBox_11->setEnabled(true);
+        ui->checkBox_28->setChecked(true);
+    }
+    else
+    {
+        ui->comboBox_11->setEnabled(false);
+        ui->checkBox_28->setChecked(false);
+    }
+
+    if (valueActive["SATA_LINKPWR_ON_BAT"])
+    {
+        ui->comboBox_12->setEnabled(true);
+        ui->checkBox_29->setChecked(true);
+    }
+    else
+    {
+        ui->comboBox_12->setEnabled(false);
+        ui->checkBox_29->setChecked(false);
+    }
+
+    if (valueActive["PCIE_ASPM_ON_AC"])
+    {
+        ui->comboBox_13->setEnabled(true);
+        ui->checkBox_30->setChecked(true);
+    }
+    else
+    {
+        ui->comboBox_13->setEnabled(false);
+        ui->checkBox_30->setChecked(false);
+    }
+
+    if (valueActive["PCIE_ASPM_ON_BAT"])
+    {
+        ui->comboBox_14->setEnabled(true);
+        ui->checkBox_31->setChecked(true);
+    }
+    else
+    {
+        ui->comboBox_14->setEnabled(false);
+        ui->checkBox_31->setChecked(false);
+    }
+
+    if (valueActive["RUNTIME_PM_ON_AC"])
+    {
+        ui->checkBox_54->setEnabled(true);
+        ui->checkBox_53->setChecked(true);
+    }
+    else
+    {
+        ui->checkBox_54->setEnabled(false);
+        ui->checkBox_53->setChecked(false);
+    }
+
+    if (valueActive["RUNTIME_PM_ON_BAT"])
+    {
+        ui->checkBox_79->setEnabled(true);
+        ui->checkBox_78->setChecked(true);
+    }
+    else
+    {
+        ui->checkBox_79->setEnabled(false);
+        ui->checkBox_78->setChecked(false);
+    }
+
+    if (valueActive["RUNTIME_PM_ALL"])
+    {
+        ui->checkBox_56->setEnabled(true);
+        ui->checkBox_55->setChecked(true);
+    }
+    else
+    {
+        ui->checkBox_56->setEnabled(false);
+        ui->checkBox_55->setChecked(false);
+    }
+
+    if (valueActive["RUNTIME_PM_BLACKLIST"])
+    {
+        ui->lineEdit_2->setEnabled(true);
+        ui->checkBox_57->setChecked(true);
+    }
+    else
+    {
+        ui->lineEdit_2->setEnabled(false);
+        ui->checkBox_57->setChecked(false);
+    }
+
+    if (valueActive["RUNTIME_PM_DRIVER_BLACKLIST"])
+    {
+        ui->lineEdit_3->setEnabled(true);
+        ui->checkBox_58->setChecked(true);
+    }
+    else
+    {
+        ui->lineEdit_3->setEnabled(false);
+        ui->checkBox_58->setChecked(false);
+    }
+
+    if (valueActive["RADEON_POWER_PROFILE_ON_AC"])
+    {
+        ui->comboBox_15->setEnabled(true);
+        ui->checkBox_32->setChecked(true);
+    }
+    else
+    {
+        ui->comboBox_15->setEnabled(false);
+        ui->checkBox_32->setChecked(false);
+    }
+
+    if (valueActive["RADEON_POWER_PROFILE_ON_BAT"])
+    {
+        ui->comboBox_16->setEnabled(true);
+        ui->checkBox_33->setChecked(true);
+    }
+    else
+    {
+        ui->comboBox_16->setEnabled(false);
+        ui->checkBox_33->setChecked(false);
+    }
+
+    if (valueActive["RADEON_DPM_STATE_ON_AC"])
+    {
+        ui->comboBox_17->setEnabled(true);
+        ui->checkBox_34->setChecked(true);
+    }
+    else
+    {
+        ui->comboBox_17->setEnabled(false);
+        ui->checkBox_34->setChecked(false);
+    }
+
+    if (valueActive["RADEON_DPM_STATE_ON_BAT"])
+    {
+        ui->comboBox_18->setEnabled(true);
+        ui->checkBox_35->setChecked(true);
+    }
+    else
+    {
+        ui->comboBox_18->setEnabled(false);
+        ui->checkBox_35->setChecked(false);
+    }
+
+    if (valueActive["RADEON_DPM_PERF_LEVEL_ON_AC"])
+    {
+        ui->comboBox_19->setEnabled(true);
+        ui->checkBox_36->setChecked(true);
+    }
+    else
+    {
+        ui->comboBox_19->setEnabled(false);
+        ui->checkBox_36->setChecked(false);
+    }
+
+    if (valueActive["RADEON_DPM_PERF_LEVEL_ON_BAT"])
+    {
+        ui->comboBox_20->setEnabled(true);
+        ui->checkBox_37->setChecked(true);
+    }
+    else
+    {
+        ui->comboBox_20->setEnabled(false);
+        ui->checkBox_37->setChecked(false);
+    }
+
+    if (valueActive["WIFI_PWR_ON_AC"])
+    {
+        ui->checkBox_39->setEnabled(true);
+        ui->checkBox_38->setChecked(true);
+    }
+    else
+    {
+        ui->checkBox_39->setEnabled(false);
+        ui->checkBox_38->setChecked(false);
+    }
+
+    if (valueActive["WIFI_PWR_ON_BAT"])
+    {
+        ui->checkBox_41->setEnabled(true);
+        ui->checkBox_40->setChecked(true);
+    }
+    else
+    {
+        ui->checkBox_41->setEnabled(false);
+        ui->checkBox_40->setChecked(false);
+    }
+
+    if (valueActive["WOL_DISABLE"])
+    {
+        ui->checkBox_43->setEnabled(true);
+        ui->checkBox_42->setChecked(true);
+    }
+    else
+    {
+        ui->checkBox_43->setEnabled(false);
+        ui->checkBox_42->setChecked(false);
+    }
+
+    if (valueActive["SOUND_POWER_SAVE_ON_AC"])
+    {
+        ui->checkBox_45->setEnabled(true);
+        ui->checkBox_44->setChecked(true);
+    }
+    else
+    {
+        ui->checkBox_45->setEnabled(false);
+        ui->checkBox_44->setChecked(false);
+    }
+
+    if (valueActive["SOUND_POWER_SAVE_ON_BAT"])
+    {
+        ui->checkBox_47->setEnabled(true);
+        ui->checkBox_46->setChecked(true);
+    }
+    else
+    {
+        ui->checkBox_47->setEnabled(false);
+        ui->checkBox_46->setChecked(false);
+    }
+
+    if (valueActive["SOUND_POWER_SAVE_CONTROLLER"])
+    {
+        ui->checkBox_49->setEnabled(true);
+        ui->checkBox_48->setChecked(true);
+    }
+    else
+    {
+        ui->checkBox_49->setEnabled(false);
+        ui->checkBox_48->setChecked(false);
+    }
+
+    if (valueActive["BAY_POWEROFF_ON_BAT"])
+    {
+        ui->checkBox_51->setEnabled(true);
+        ui->checkBox_50->setChecked(true);
+    }
+    else
+    {
+        ui->checkBox_51->setEnabled(false);
+        ui->checkBox_50->setChecked(false);
+    }
+
+    if (valueActive["BAY_DEVICE"])
+    {
+        ui->comboBox_21->setEnabled(true);
+        ui->checkBox_52->setChecked(true);
+    }
+    else
+    {
+        ui->comboBox_21->setEnabled(false);
+        ui->checkBox_52->setChecked(false);
+    }
+
+    if (valueActive["USB_AUTOSUSPEND"])
+    {
+        ui->checkBox_60->setEnabled(true);
+        ui->checkBox_59->setChecked(true);
+    }
+    else
+    {
+        ui->checkBox_60->setEnabled(false);
+        ui->checkBox_59->setChecked(false);
+    }
+
+    if (valueActive["USB_BLACKLIST"])
+    {
+        ui->lineEdit_4->setEnabled(true);
+        ui->checkBox_61->setChecked(true);
+    }
+    else
+    {
+        ui->lineEdit_4->setEnabled(false);
+        ui->checkBox_61->setChecked(false);
+    }
+
+    if (valueActive["USB_DRIVER_BLACKLIST"])
+    {
+        ui->comboBox_22->setEnabled(true);
+        ui->checkBox_62->setChecked(true);
+    }
+    else
+    {
+        ui->comboBox_22->setEnabled(false);
+        ui->checkBox_62->setChecked(false);
+    }
+
+    if (valueActive["USB_BLACKLIST_WWAN"])
+    {
+        ui->checkBox_64->setEnabled(true);
+        ui->checkBox_63->setChecked(true);
+    }
+    else
+    {
+        ui->checkBox_64->setEnabled(false);
+        ui->checkBox_63->setChecked(false);
+    }
+
+    if (valueActive["USB_WHITELIST"])
+    {
+        ui->lineEdit_5->setEnabled(true);
+        ui->checkBox_65->setChecked(true);
+    }
+    else
+    {
+        ui->lineEdit_5->setEnabled(false);
+        ui->checkBox_65->setChecked(false);
+    }
+
+    if (valueActive["USB_AUTOSUSPEND_DISABLE_ON_SHUTDOWN"])
+    {
+        ui->checkBox_66->setEnabled(true);
+        ui->checkBox_67->setChecked(true);
+    }
+    else
+    {
+        ui->checkBox_66->setEnabled(false);
+        ui->checkBox_67->setChecked(false);
+    }
+
+    if (valueActive["RESTORE_DEVICE_STATE_ON_STARTUP"])
+    {
+        ui->checkBox_69->setEnabled(true);
+        ui->checkBox_68->setChecked(true);
+    }
+    else
+    {
+        ui->checkBox_69->setEnabled(false);
+        ui->checkBox_68->setChecked(false);
+    }
+
+    if (valueActive["DEVICES_TO_DISABLE_ON_STARTUP"])
+    {
+        ui->lineEdit_6->setEnabled(true);
+        ui->checkBox_70->setChecked(true);
+    }
+    else
+    {
+        ui->lineEdit_6->setEnabled(false);
+        ui->checkBox_70->setChecked(false);
+    }
+
+    if (valueActive["DEVICES_TO_ENABLE_ON_STARTUP"])
+    {
+        ui->lineEdit_7->setEnabled(true);
+        ui->checkBox_71->setChecked(true);
+    }
+    else
+    {
+        ui->lineEdit_7->setEnabled(false);
+        ui->checkBox_71->setChecked(false);
+    }
+
+    if (valueActive["DEVICES_TO_DISABLE_ON_SHUTDOWN"])
+    {
+        ui->lineEdit_8->setEnabled(true);
+        ui->checkBox_72->setChecked(true);
+    }
+    else
+    {
+        ui->lineEdit_8->setEnabled(false);
+        ui->checkBox_72->setChecked(false);
+    }
+
+    if (valueActive["DEVICES_TO_ENABLE_ON_SHUTDOWN"])
+    {
+        ui->lineEdit_9->setEnabled(true);
+        ui->checkBox_73->setChecked(true);
+    }
+    else
+    {
+        ui->lineEdit_9->setEnabled(false);
+        ui->checkBox_73->setChecked(false);
+    }
+
+    if (valueActive["DEVICES_TO_ENABLE_ON_AC"])
+    {
+        ui->lineEdit_11->setEnabled(true);
+        ui->checkBox_75->setChecked(true);
+    }
+    else
+    {
+        ui->lineEdit_11->setEnabled(false);
+        ui->checkBox_75->setChecked(false);
+    }
+
+    if (valueActive["DEVICES_TO_DISABLE_ON_BAT"])
+    {
+        ui->lineEdit_12->setEnabled(true);
+        ui->checkBox_76->setChecked(true);
+    }
+    else
+    {
+        ui->lineEdit_12->setEnabled(false);
+        ui->checkBox_76->setChecked(false);
+    }
+
+    if (valueActive["DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE"])
+    {
+        ui->lineEdit_25->setEnabled(true);
+        ui->checkBox_154->setChecked(true);
+    }
+    else
+    {
+        ui->lineEdit_25->setEnabled(false);
+        ui->checkBox_154->setChecked(false);
+    }
+
+    if (valueActive["DEVICES_TO_DISABLE_ON_LAN_CONNECT"])
+    {
+        ui->lineEdit_26->setEnabled(true);
+        ui->checkBox_155->setChecked(true);
+    }
+    else
+    {
+        ui->lineEdit_26->setEnabled(false);
+        ui->checkBox_155->setChecked(false);
+    }
+
+    if (valueActive["DEVICES_TO_DISABLE_ON_WIFI_CONNECT"])
+    {
+        ui->lineEdit_27->setEnabled(true);
+        ui->checkBox_156->setChecked(true);
+    }
+    else
+    {
+        ui->lineEdit_27->setEnabled(false);
+        ui->checkBox_156->setChecked(false);
+    }
+
+    if (valueActive["DEVICES_TO_DISABLE_ON_WWAN_CONNECT"])
+    {
+        ui->lineEdit_28->setEnabled(true);
+        ui->checkBox_157->setChecked(true);
+    }
+    else
+    {
+        ui->lineEdit_28->setEnabled(false);
+        ui->checkBox_157->setChecked(false);
+    }
+
+    if (valueActive["DEVICES_TO_ENABLE_ON_LAN_DISCONNECT"])
+    {
+        ui->lineEdit_29->setEnabled(true);
+        ui->checkBox_158->setChecked(true);
+    }
+    else
+    {
+        ui->lineEdit_29->setEnabled(false);
+        ui->checkBox_158->setChecked(false);
+    }
+
+    if (valueActive["DEVICES_TO_ENABLE_ON_WIFI_DISCONNECT"])
+    {
+        ui->lineEdit_47->setEnabled(true);
+        ui->checkBox_241->setChecked(true);
+    }
+    else
+    {
+        ui->lineEdit_47->setEnabled(false);
+        ui->checkBox_241->setChecked(false);
+    }
+
+    if (valueActive["DEVICES_TO_ENABLE_ON_WWAN_DISCONNECT"])
+    {
+        ui->lineEdit_48->setEnabled(true);
+        ui->checkBox_242->setChecked(true);
+    }
+    else
+    {
+        ui->lineEdit_48->setEnabled(false);
+        ui->checkBox_242->setChecked(false);
+    }
+
+    if (valueActive["DEVICES_TO_ENABLE_ON_DOCK"])
+    {
+        ui->lineEdit_49->setEnabled(true);
+        ui->checkBox_243->setChecked(true);
+    }
+    else
+    {
+        ui->lineEdit_49->setEnabled(false);
+        ui->checkBox_243->setChecked(false);
+    }
+
+    if (valueActive["DEVICES_TO_DISABLE_ON_DOCK"])
+    {
+        ui->lineEdit_70->setEnabled(true);
+        ui->checkBox_329->setChecked(true);
+    }
+    else
+    {
+        ui->lineEdit_70->setEnabled(false);
+        ui->checkBox_329->setChecked(false);
+    }
+
+    if (valueActive["DEVICES_TO_ENABLE_ON_UNDOCK"])
+    {
+        ui->lineEdit_72->setEnabled(true);
+        ui->checkBox_331->setChecked(true);
+    }
+    else
+    {
+        ui->lineEdit_72->setEnabled(false);
+        ui->checkBox_331->setChecked(false);
+    }
+
+    if (valueActive["DEVICES_TO_DISABLE_ON_UNDOCK"])
+    {
+        ui->lineEdit_71->setEnabled(true);
+        ui->checkBox_330->setChecked(true);
+    }
+    else
+    {
+        ui->lineEdit_71->setEnabled(false);
+        ui->checkBox_330->setChecked(false);
+    }
+}
+
 void MainWindow::setActivate(bool b, QString value)
 {
     if (b)
-        values[value]="1";
+        valueActive[value]=true;
     else
-        values[value]="0";
+        valueActive[value]=false;
+    prepareGui();
 
 }
-
 
 
 void MainWindow::on_cb_tlp_active_clicked()
@@ -90,16 +958,9 @@ void MainWindow::on_cb_tlp_active_clicked()
     setActivate(ui->cb_tlp_active->isChecked(),"TLP_ENABLE");
 }
 
-void MainWindow::on_comboBox_currentIndexChanged(const QString &arg1)
+void MainWindow::on_cb_cpu_scaling_governor_on_ac_clicked()
 {
-    if (ui->checkBox->isChecked()) {
-        values["CPU_SCALING_GOVERNOR_ON_AC"]=arg1;
-    }
-}
-
-void MainWindow::on_checkBox_clicked()
-{
-    setActivate(ui->checkBox->isChecked(),"CPU_SCALING_GOVERNOR_ON_AC");
+    setActivate(ui->cb_cpu_scaling_governor_on_ac->isChecked(),"CPU_SCALING_GOVERNOR_ON_AC");
 }
 
 void MainWindow::on_checkBox_2_clicked()
@@ -300,7 +1161,6 @@ void MainWindow::on_checkBox_38_clicked()
 void MainWindow::on_checkBox_40_clicked()
 {
     setActivate(ui->checkBox_40->isChecked(),"WIFI_PWR_ON_BAT");
-
 }
 
 void MainWindow::on_checkBox_42_clicked()

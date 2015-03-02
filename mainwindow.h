@@ -23,9 +23,7 @@ public:
 private slots:
     void on_cb_tlp_active_clicked();
 
-    void on_comboBox_currentIndexChanged(const QString &arg1);
-
-    void on_checkBox_clicked();
+    void on_cb_cpu_scaling_governor_on_ac_clicked();
 
     void on_checkBox_2_clicked();
 
@@ -175,6 +173,7 @@ private:
     QMap<QString,double> valueActive;
     void loadMarkedLines();
     void readConfig();
+    void prepareGui();
     void setActivate(bool b,QString value);
 };
 
