@@ -18,7 +18,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -46,9 +46,55 @@
                <string>TLP Active</string>
               </property>
               <property name="checked">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_74">
+              <property name="text">
+               <string>Seconds laptop mode 
+has to wait after the disk 
+goes idle before doing a sync (AC)</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="checkBox_80">
+              <property name="text">
+               <string>Seconds laptop mode 
+has to wait after the disk 
+goes idle before doing a sync (BAT)</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_55">
+              <item>
+               <widget class="QLabel" name="label">
+                <property name="text">
+                 <string>Dirty page values (timeouts in secs) (AC) :</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSpinBox" name="spinBox_9"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_56">
+              <item>
+               <widget class="QLabel" name="label_2">
+                <property name="text">
+                 <string>Dirty page values (timeouts in secs) (BAT) :</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSpinBox" name="spinBox_10"/>
+              </item>
+             </layout>
             </item>
            </layout>
           </widget>
@@ -413,17 +459,17 @@
                <widget class="QComboBox" name="comboBox_3">
                 <item>
                  <property name="text">
-                  <string>Performance</string>
+                  <string>performance</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>Normal</string>
+                  <string>normal</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>Powersave</string>
+                  <string>powersave</string>
                  </property>
                 </item>
                </widget>
@@ -443,17 +489,17 @@
                <widget class="QComboBox" name="comboBox_4">
                 <item>
                  <property name="text">
-                  <string>Performance</string>
+                  <string>performance</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>Normal</string>
+                  <string>normal</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>Powersave</string>
+                  <string>powersave</string>
                  </property>
                 </item>
                </widget>

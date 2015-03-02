@@ -7,6 +7,8 @@
 #include <QDebug>
 #include <QStringList>
 #include <QMap>
+#include <QListView>
+#include <QStandardItemModel>
 
 namespace Ui {
 class MainWindow;
@@ -165,12 +167,16 @@ private slots:
 
     void on_checkBox_330_clicked();
 
+    void on_checkBox_69_clicked();
+
 private:
     Ui::MainWindow *ui;
     QStringList data;
     QStringList markedLines;
     QMap<QString,QString> values;
     QMap<QString,double> valueActive;
+    QListView* pView = new QListView();
+    QStandardItemModel* pModel = new QStandardItemModel();
     void loadMarkedLines();
     void readConfig();
     void prepareGui();

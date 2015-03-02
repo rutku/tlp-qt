@@ -71,7 +71,8 @@ void MainWindow::readConfig()
                     valueActive[word]=true;
 
                 QStringList splitLine = line.split("=");
-                values[word]=splitLine.at(1);
+                QString text = splitLine.at(1);
+                values[word]=text.remove(QChar('"'),Qt::CaseInsensitive);
 
             }
 
@@ -81,16 +82,39 @@ void MainWindow::readConfig()
 
 void MainWindow::prepareGui()
 {
+    if (values["TLP_ENABLE"]!="0")
+    {
+        ui->cb_tlp_active->setChecked(true);
+    }
+    else
+    {
+        ui->cb_tlp_active->setChecked(false);
+    }
+    if (values["DISK_IDLE_SECS_ON_AC"]!="0")
+    {
+        ui->checkBox_74->setChecked(true);
+    }
+    else
+    {
+        ui->checkBox_74->setChecked(false);
+    }
+    if (values["DISK_IDLE_SECS_ON_BAT"]!="0")
+    {
+        ui->checkBox_80->setChecked(true);
+    }
+    else
+    {
+        ui->checkBox_80->setChecked(false);
+    }
+    ui->spinBox_9->setValue(values["MAX_LOST_WORK_SECS_ON_AC"].toInt(0));
+    ui->spinBox_10->setValue(values["MAX_LOST_WORK_SECS_ON_BAT"].toInt(0));
+
+
     if (valueActive["CPU_SCALING_GOVERNOR_ON_AC"])
     {
         ui->comboBox->setEnabled(true);
         ui->cb_cpu_scaling_governor_on_ac->setChecked(true);
-
-        for (int i = 0; i < ui->comboBox->count(); ++i) {
-            if (ui->comboBox->itemText(i)==values["CPU_SCALING_GOVERNOR_ON_AC"]) {
-                ui->comboBox->setCurrentIndex(i);
-            }
-        }
+        ui->comboBox->setCurrentIndex(ui->comboBox->findText(values["CPU_SCALING_GOVERNOR_ON_AC"]));
     }
     else
     {
@@ -102,11 +126,7 @@ void MainWindow::prepareGui()
     {
         ui->comboBox_2->setEnabled(true);
         ui->checkBox_2->setChecked(true);
-        for (int i = 0; i < ui->comboBox_2->count(); ++i) {
-            if (ui->comboBox_2->itemText(i)==values["CPU_SCALING_GOVERNOR_ON_BAT"]) {
-                ui->comboBox_2->setCurrentIndex(i);
-            }
-        }
+        ui->comboBox_2->setCurrentIndex(ui->comboBox_2->findText(values["CPU_SCALING_GOVERNOR_ON_BAT"]));
     }
     else
     {
@@ -330,11 +350,7 @@ void MainWindow::prepareGui()
     {
         ui->comboBox_3->setEnabled(true);
         ui->checkBox_16->setChecked(true);
-        for (int i = 0; i < ui->comboBox_3->count(); ++i) {
-            if (ui->comboBox_3->itemText(i)==values["ENERGY_PERF_POLICY_ON_AC"]) {
-                ui->comboBox_3->setCurrentIndex(i);
-            }
-        }
+        ui->comboBox_3->setCurrentIndex(ui->comboBox_3->findText(values["ENERGY_PERF_POLICY_ON_AC"]));
     }
     else
     {
@@ -346,11 +362,7 @@ void MainWindow::prepareGui()
     {
         ui->comboBox_4->setEnabled(true);
         ui->checkBox_17->setChecked(true);
-        for (int i = 0; i < ui->comboBox_4->count(); ++i) {
-            if (ui->comboBox_4->itemText(i)==values["ENERGY_PERF_POLICY_ON_BAT"]) {
-                ui->comboBox_4->setCurrentIndex(i);
-            }
-        }
+        ui->comboBox_4->setCurrentIndex(ui->comboBox_4->findText(values["ENERGY_PERF_POLICY_ON_BAT"]));
     }
     else
     {
@@ -362,6 +374,17 @@ void MainWindow::prepareGui()
     {
         ui->comboBox_6->setEnabled(true);
         ui->checkBox_22->setChecked(true);
+
+        QString val = values["DISK_DEVICES"];
+        int index = ui->comboBox_6->findText(val);
+        if (index > -1)
+            ui->comboBox_6->setCurrentIndex(index);
+        else
+        {
+            ui->comboBox_6->addItem(val);
+            ui->comboBox_6->setCurrentIndex(ui->comboBox_6->count()-1);
+        }
+
     }
     else
     {
@@ -373,6 +396,18 @@ void MainWindow::prepareGui()
     {
         ui->comboBox_7->setEnabled(true);
         ui->checkBox_23->setChecked(true);
+
+        QString val = values["DISK_APM_LEVEL_ON_AC"];
+        int index = ui->comboBox_7->findText(val);
+        if (index > -1)
+            ui->comboBox_7->setCurrentIndex(index);
+        else
+        {
+            ui->comboBox_7->addItem(val);
+            ui->comboBox_7->setCurrentIndex(ui->comboBox_7->count()-1);
+        }
+
+
     }
     else
     {
@@ -384,6 +419,17 @@ void MainWindow::prepareGui()
     {
         ui->comboBox_8->setEnabled(true);
         ui->checkBox_24->setChecked(true);
+
+        QString val = values["DISK_APM_LEVEL_ON_BAT"];
+        int index = ui->comboBox_8->findText(val);
+        if (index > -1)
+            ui->comboBox_8->setCurrentIndex(index);
+        else
+        {
+            ui->comboBox_8->addItem(val);
+            ui->comboBox_8->setCurrentIndex(ui->comboBox_8->count()-1);
+        }
+
     }
     else
     {
@@ -395,6 +441,17 @@ void MainWindow::prepareGui()
     {
         ui->comboBox_9->setEnabled(true);
         ui->checkBox_25->setChecked(true);
+
+        QString val = values["DISK_SPINDOWN_TIMEOUT_ON_AC"];
+        int index = ui->comboBox_9->findText(val);
+        if (index > -1)
+            ui->comboBox_9->setCurrentIndex(index);
+        else
+        {
+            ui->comboBox_9->addItem(val);
+            ui->comboBox_9->setCurrentIndex(ui->comboBox_9->count()-1);
+        }
+
     }
     else
     {
@@ -402,10 +459,20 @@ void MainWindow::prepareGui()
         ui->checkBox_25->setChecked(false);
     }
 
-    if (valueActive["DISK_SPINDOWN_TIMEOUT_ON_AC"])
+    if (valueActive["DISK_SPINDOWN_TIMEOUT_ON_BAT"])
     {
         ui->comboBox_10->setEnabled(true);
         ui->checkBox_26->setChecked(true);
+
+        QString val = values["DISK_SPINDOWN_TIMEOUT_ON_BAT"];
+        int index = ui->comboBox_10->findText(val);
+        if (index > -1)
+            ui->comboBox_10->setCurrentIndex(index);
+        else
+        {
+            ui->comboBox_10->addItem(val);
+            ui->comboBox_10->setCurrentIndex(ui->comboBox_10->count()-1);
+        }
     }
     else
     {
@@ -417,6 +484,16 @@ void MainWindow::prepareGui()
     {
         ui->comboBox_5->setEnabled(true);
         ui->checkBox_27->setChecked(true);
+
+        QString val = values["DISK_IOSCHED"];
+        int index = ui->comboBox_5->findText(val);
+        if (index > -1)
+            ui->comboBox_5->setCurrentIndex(index);
+        else
+        {
+            ui->comboBox_5->addItem(val);
+            ui->comboBox_5->setCurrentIndex(ui->comboBox_5->count()-1);
+        }
     }
     else
     {
@@ -428,6 +505,16 @@ void MainWindow::prepareGui()
     {
         ui->comboBox_11->setEnabled(true);
         ui->checkBox_28->setChecked(true);
+
+        QString val = values["SATA_LINKPWR_ON_AC"];
+        int index = ui->comboBox_11->findText(val);
+        if (index > -1)
+            ui->comboBox_11->setCurrentIndex(index);
+        else
+        {
+            ui->comboBox_11->addItem(val);
+            ui->comboBox_11->setCurrentIndex(ui->comboBox_11->count()-1);
+        }
     }
     else
     {
@@ -439,6 +526,16 @@ void MainWindow::prepareGui()
     {
         ui->comboBox_12->setEnabled(true);
         ui->checkBox_29->setChecked(true);
+
+        QString val = values["SATA_LINKPWR_ON_BAT"];
+        int index = ui->comboBox_12->findText(val);
+        if (index > -1)
+            ui->comboBox_12->setCurrentIndex(index);
+        else
+        {
+            ui->comboBox_12->addItem(val);
+            ui->comboBox_12->setCurrentIndex(ui->comboBox_12->count()-1);
+        }
     }
     else
     {
@@ -450,6 +547,16 @@ void MainWindow::prepareGui()
     {
         ui->comboBox_13->setEnabled(true);
         ui->checkBox_30->setChecked(true);
+
+        QString val = values["PCIE_ASPM_ON_AC"];
+        int index = ui->comboBox_13->findText(val);
+        if (index > -1)
+            ui->comboBox_13->setCurrentIndex(index);
+        else
+        {
+            ui->comboBox_13->addItem(val);
+            ui->comboBox_13->setCurrentIndex(ui->comboBox_13->count()-1);
+        }
     }
     else
     {
@@ -461,6 +568,16 @@ void MainWindow::prepareGui()
     {
         ui->comboBox_14->setEnabled(true);
         ui->checkBox_31->setChecked(true);
+
+        QString val = values["PCIE_ASPM_ON_BAT"];
+        int index = ui->comboBox_14->findText(val);
+        if (index > -1)
+            ui->comboBox_14->setCurrentIndex(index);
+        else
+        {
+            ui->comboBox_14->addItem(val);
+            ui->comboBox_14->setCurrentIndex(ui->comboBox_14->count()-1);
+        }
     }
     else
     {
@@ -472,6 +589,16 @@ void MainWindow::prepareGui()
     {
         ui->checkBox_54->setEnabled(true);
         ui->checkBox_53->setChecked(true);
+        if (values["RUNTIME_PM_ON_AC"]=="on") {
+            ui->checkBox_54->setChecked(false);
+            ui->checkBox_54->setText("disable");
+        }else
+        {
+            ui->checkBox_54->setChecked(true);
+            ui->checkBox_54->setText("enable");
+        }
+
+
     }
     else
     {
@@ -483,6 +610,15 @@ void MainWindow::prepareGui()
     {
         ui->checkBox_79->setEnabled(true);
         ui->checkBox_78->setChecked(true);
+
+        if (values["RUNTIME_PM_ON_BAT"]=="on") {
+            ui->checkBox_79->setChecked(false);
+            ui->checkBox_79->setText("disable");
+        }else
+        {
+            ui->checkBox_79->setChecked(true);
+            ui->checkBox_79->setText("enable");
+        }
     }
     else
     {
@@ -494,6 +630,15 @@ void MainWindow::prepareGui()
     {
         ui->checkBox_56->setEnabled(true);
         ui->checkBox_55->setChecked(true);
+
+        if (values["RUNTIME_PM_ON_BAT"]=="0") {
+            ui->checkBox_56->setChecked(false);
+            ui->checkBox_56->setText("disable");
+        }else
+        {
+            ui->checkBox_56->setChecked(true);
+            ui->checkBox_56->setText("enable");
+        }
     }
     else
     {
@@ -505,6 +650,7 @@ void MainWindow::prepareGui()
     {
         ui->lineEdit_2->setEnabled(true);
         ui->checkBox_57->setChecked(true);
+        ui->lineEdit_2->setText(values["RUNTIME_PM_BLACKLIST"]);
     }
     else
     {
@@ -516,6 +662,7 @@ void MainWindow::prepareGui()
     {
         ui->lineEdit_3->setEnabled(true);
         ui->checkBox_58->setChecked(true);
+        ui->lineEdit_3->setText(values["RUNTIME_PM_DRIVER_BLACKLIST"]);
     }
     else
     {
@@ -527,6 +674,8 @@ void MainWindow::prepareGui()
     {
         ui->comboBox_15->setEnabled(true);
         ui->checkBox_32->setChecked(true);
+        ui->comboBox_15->setCurrentIndex(ui->comboBox_15->findText(values["RADEON_POWER_PROFILE_ON_AC"]));
+
     }
     else
     {
@@ -538,6 +687,8 @@ void MainWindow::prepareGui()
     {
         ui->comboBox_16->setEnabled(true);
         ui->checkBox_33->setChecked(true);
+        ui->comboBox_16->setCurrentIndex(ui->comboBox_16->findText(values["RADEON_POWER_PROFILE_ON_BAT"]));
+
     }
     else
     {
@@ -549,6 +700,8 @@ void MainWindow::prepareGui()
     {
         ui->comboBox_17->setEnabled(true);
         ui->checkBox_34->setChecked(true);
+        ui->comboBox_17->setCurrentIndex(ui->comboBox_17->findText(values["RADEON_DPM_STATE_ON_AC"]));
+
     }
     else
     {
@@ -560,6 +713,8 @@ void MainWindow::prepareGui()
     {
         ui->comboBox_18->setEnabled(true);
         ui->checkBox_35->setChecked(true);
+        ui->comboBox_18->setCurrentIndex(ui->comboBox_18->findText(values["RADEON_DPM_STATE_ON_BAT"]));
+
     }
     else
     {
@@ -571,6 +726,8 @@ void MainWindow::prepareGui()
     {
         ui->comboBox_19->setEnabled(true);
         ui->checkBox_36->setChecked(true);
+        ui->comboBox_19->setCurrentIndex(ui->comboBox_19->findText(values["RADEON_DPM_PERF_LEVEL_ON_AC"]));
+
     }
     else
     {
@@ -582,6 +739,8 @@ void MainWindow::prepareGui()
     {
         ui->comboBox_20->setEnabled(true);
         ui->checkBox_37->setChecked(true);
+        ui->comboBox_20->setCurrentIndex(ui->comboBox_20->findText(values["RADEON_DPM_PERF_LEVEL_ON_BAT"]));
+
     }
     else
     {
@@ -593,6 +752,15 @@ void MainWindow::prepareGui()
     {
         ui->checkBox_39->setEnabled(true);
         ui->checkBox_38->setChecked(true);
+
+        if (values["WIFI_PWR_ON_AC"]=="1") {
+            ui->checkBox_39->setChecked(false);
+            ui->checkBox_39->setText("disable");
+        }else
+        {
+            ui->checkBox_39->setChecked(true);
+            ui->checkBox_39->setText("enable");
+        }
     }
     else
     {
@@ -604,6 +772,15 @@ void MainWindow::prepareGui()
     {
         ui->checkBox_41->setEnabled(true);
         ui->checkBox_40->setChecked(true);
+
+        if (values["WIFI_PWR_ON_BAT"]=="1") {
+            ui->checkBox_41->setChecked(false);
+            ui->checkBox_41->setText("disable");
+        }else
+        {
+            ui->checkBox_41->setChecked(true);
+            ui->checkBox_41->setText("enable");
+        }
     }
     else
     {
@@ -615,6 +792,15 @@ void MainWindow::prepareGui()
     {
         ui->checkBox_43->setEnabled(true);
         ui->checkBox_42->setChecked(true);
+
+        if (values["WOL_DISABLE"]=="N") {
+            ui->checkBox_43->setChecked(false);
+            ui->checkBox_43->setText("No");
+        }else
+        {
+            ui->checkBox_43->setChecked(true);
+            ui->checkBox_43->setText("Yes");
+        }
     }
     else
     {
@@ -626,6 +812,15 @@ void MainWindow::prepareGui()
     {
         ui->checkBox_45->setEnabled(true);
         ui->checkBox_44->setChecked(true);
+
+        if (values["SOUND_POWER_SAVE_ON_AC"]=="0") {
+            ui->checkBox_45->setChecked(false);
+            ui->checkBox_45->setText("Disable");
+        }else
+        {
+            ui->checkBox_45->setChecked(true);
+            ui->checkBox_45->setText("Enable");
+        }
     }
     else
     {
@@ -637,6 +832,15 @@ void MainWindow::prepareGui()
     {
         ui->checkBox_47->setEnabled(true);
         ui->checkBox_46->setChecked(true);
+
+        if (values["SOUND_POWER_SAVE_ON_BAT"]=="0") {
+            ui->checkBox_47->setChecked(false);
+            ui->checkBox_47->setText("Disable");
+        }else
+        {
+            ui->checkBox_47->setChecked(true);
+            ui->checkBox_47->setText("Enable");
+        }
     }
     else
     {
@@ -648,6 +852,15 @@ void MainWindow::prepareGui()
     {
         ui->checkBox_49->setEnabled(true);
         ui->checkBox_48->setChecked(true);
+
+        if (values["SOUND_POWER_SAVE_CONTROLLER"]=="N") {
+            ui->checkBox_49->setChecked(false);
+            ui->checkBox_49->setText("No");
+        }else
+        {
+            ui->checkBox_49->setChecked(true);
+            ui->checkBox_49->setText("Yes");
+        }
     }
     else
     {
@@ -659,6 +872,15 @@ void MainWindow::prepareGui()
     {
         ui->checkBox_51->setEnabled(true);
         ui->checkBox_50->setChecked(true);
+
+        if (values["BAY_POWEROFF_ON_BAT"]=="0") {
+            ui->checkBox_51->setChecked(false);
+            ui->checkBox_51->setText("Disable");
+        }else
+        {
+            ui->checkBox_51->setChecked(true);
+            ui->checkBox_51->setText("Enable");
+        }
     }
     else
     {
@@ -670,6 +892,16 @@ void MainWindow::prepareGui()
     {
         ui->comboBox_21->setEnabled(true);
         ui->checkBox_52->setChecked(true);
+
+        QString val = values["BAY_DEVICE"];
+        int index = ui->comboBox_21->findText(val);
+        if (index > -1)
+            ui->comboBox_21->setCurrentIndex(index);
+        else
+        {
+            ui->comboBox_21->addItem(val);
+            ui->comboBox_21->setCurrentIndex(ui->comboBox_21->count()-1);
+        }
     }
     else
     {
@@ -681,6 +913,15 @@ void MainWindow::prepareGui()
     {
         ui->checkBox_60->setEnabled(true);
         ui->checkBox_59->setChecked(true);
+
+        if (values["USB_AUTOSUSPEND"]=="0") {
+            ui->checkBox_60->setChecked(false);
+            ui->checkBox_60->setText("Disable");
+        }else
+        {
+            ui->checkBox_60->setChecked(true);
+            ui->checkBox_60->setText("Enable");
+        }
     }
     else
     {
@@ -692,6 +933,7 @@ void MainWindow::prepareGui()
     {
         ui->lineEdit_4->setEnabled(true);
         ui->checkBox_61->setChecked(true);
+        ui->lineEdit_4->setText(values["USB_BLACKLIST"]);
     }
     else
     {
@@ -703,6 +945,16 @@ void MainWindow::prepareGui()
     {
         ui->comboBox_22->setEnabled(true);
         ui->checkBox_62->setChecked(true);
+
+        QString val = values["USB_DRIVER_BLACKLIST"];
+        int index = ui->comboBox_22->findText(val);
+        if (index > -1)
+            ui->comboBox_22->setCurrentIndex(index);
+        else
+        {
+            ui->comboBox_22->addItem(val);
+            ui->comboBox_22->setCurrentIndex(ui->comboBox_22->count()-1);
+        }
     }
     else
     {
@@ -714,6 +966,15 @@ void MainWindow::prepareGui()
     {
         ui->checkBox_64->setEnabled(true);
         ui->checkBox_63->setChecked(true);
+
+        if (values["USB_BLACKLIST_WWAN"]=="0") {
+            ui->checkBox_60->setChecked(false);
+            ui->checkBox_60->setText("Don't exclude");
+        }else
+        {
+            ui->checkBox_60->setChecked(true);
+            ui->checkBox_60->setText("Exclude");
+        }
     }
     else
     {
@@ -725,6 +986,7 @@ void MainWindow::prepareGui()
     {
         ui->lineEdit_5->setEnabled(true);
         ui->checkBox_65->setChecked(true);
+        ui->lineEdit_5->setText(values["USB_WHITELIST"]);
     }
     else
     {
@@ -736,6 +998,15 @@ void MainWindow::prepareGui()
     {
         ui->checkBox_66->setEnabled(true);
         ui->checkBox_67->setChecked(true);
+
+        if (values["USB_AUTOSUSPEND_DISABLE_ON_SHUTDOWN"]=="0") {
+            ui->checkBox_66->setChecked(false);
+            ui->checkBox_66->setText("Disable");
+        }else
+        {
+            ui->checkBox_66->setChecked(true);
+            ui->checkBox_66->setText("Enable");
+        }
     }
     else
     {
@@ -747,6 +1018,15 @@ void MainWindow::prepareGui()
     {
         ui->checkBox_69->setEnabled(true);
         ui->checkBox_68->setChecked(true);
+
+        if (values["RESTORE_DEVICE_STATE_ON_STARTUP"]=="0") {
+            ui->checkBox_69->setChecked(false);
+            ui->checkBox_69->setText("Disable");
+        }else
+        {
+            ui->checkBox_69->setChecked(true);
+            ui->checkBox_69->setText("Enable");
+        }
     }
     else
     {
@@ -758,6 +1038,7 @@ void MainWindow::prepareGui()
     {
         ui->lineEdit_6->setEnabled(true);
         ui->checkBox_70->setChecked(true);
+        ui->lineEdit_6->setText(values["DEVICES_TO_DISABLE_ON_STARTUP"]);
     }
     else
     {
@@ -769,6 +1050,8 @@ void MainWindow::prepareGui()
     {
         ui->lineEdit_7->setEnabled(true);
         ui->checkBox_71->setChecked(true);
+        ui->lineEdit_7->setText(values["DEVICES_TO_ENABLE_ON_STARTUP"]);
+
     }
     else
     {
@@ -780,6 +1063,8 @@ void MainWindow::prepareGui()
     {
         ui->lineEdit_8->setEnabled(true);
         ui->checkBox_72->setChecked(true);
+        ui->lineEdit_8->setText(values["DEVICES_TO_DISABLE_ON_SHUTDOWN"]);
+
     }
     else
     {
@@ -791,6 +1076,8 @@ void MainWindow::prepareGui()
     {
         ui->lineEdit_9->setEnabled(true);
         ui->checkBox_73->setChecked(true);
+        ui->lineEdit_9->setText(values["DEVICES_TO_ENABLE_ON_SHUTDOWN"]);
+
     }
     else
     {
@@ -802,6 +1089,7 @@ void MainWindow::prepareGui()
     {
         ui->lineEdit_11->setEnabled(true);
         ui->checkBox_75->setChecked(true);
+        ui->lineEdit_11->setText(values["DEVICES_TO_ENABLE_ON_AC"]);
     }
     else
     {
@@ -813,6 +1101,8 @@ void MainWindow::prepareGui()
     {
         ui->lineEdit_12->setEnabled(true);
         ui->checkBox_76->setChecked(true);
+        ui->lineEdit_12->setText(values["DEVICES_TO_DISABLE_ON_BAT"]);
+
     }
     else
     {
@@ -824,6 +1114,8 @@ void MainWindow::prepareGui()
     {
         ui->lineEdit_25->setEnabled(true);
         ui->checkBox_154->setChecked(true);
+        ui->lineEdit_25->setText(values["DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE"]);
+
     }
     else
     {
@@ -835,6 +1127,7 @@ void MainWindow::prepareGui()
     {
         ui->lineEdit_26->setEnabled(true);
         ui->checkBox_155->setChecked(true);
+        ui->lineEdit_26->setText(values["DEVICES_TO_DISABLE_ON_LAN_CONNECT"]);
     }
     else
     {
@@ -846,6 +1139,8 @@ void MainWindow::prepareGui()
     {
         ui->lineEdit_27->setEnabled(true);
         ui->checkBox_156->setChecked(true);
+        ui->lineEdit_27->setText(values["DEVICES_TO_DISABLE_ON_WIFI_CONNECT"]);
+
     }
     else
     {
@@ -857,6 +1152,8 @@ void MainWindow::prepareGui()
     {
         ui->lineEdit_28->setEnabled(true);
         ui->checkBox_157->setChecked(true);
+        ui->lineEdit_28->setText(values["DEVICES_TO_DISABLE_ON_WWAN_CONNECT"]);
+
     }
     else
     {
@@ -868,6 +1165,7 @@ void MainWindow::prepareGui()
     {
         ui->lineEdit_29->setEnabled(true);
         ui->checkBox_158->setChecked(true);
+        ui->lineEdit_29->setText(values["DEVICES_TO_ENABLE_ON_LAN_DISCONNECT"]);
     }
     else
     {
@@ -879,6 +1177,7 @@ void MainWindow::prepareGui()
     {
         ui->lineEdit_47->setEnabled(true);
         ui->checkBox_241->setChecked(true);
+        ui->lineEdit_47->setText(values["DEVICES_TO_ENABLE_ON_WIFI_DISCONNECT"]);
     }
     else
     {
@@ -890,6 +1189,8 @@ void MainWindow::prepareGui()
     {
         ui->lineEdit_48->setEnabled(true);
         ui->checkBox_242->setChecked(true);
+        ui->lineEdit_48->setText(values["DEVICES_TO_ENABLE_ON_WWAN_DISCONNECT"]);
+
     }
     else
     {
@@ -901,6 +1202,8 @@ void MainWindow::prepareGui()
     {
         ui->lineEdit_49->setEnabled(true);
         ui->checkBox_243->setChecked(true);
+        ui->lineEdit_49->setText(values["DEVICES_TO_ENABLE_ON_DOCK"]);
+
     }
     else
     {
@@ -912,6 +1215,8 @@ void MainWindow::prepareGui()
     {
         ui->lineEdit_70->setEnabled(true);
         ui->checkBox_329->setChecked(true);
+        ui->lineEdit_70->setText(values["DEVICES_TO_DISABLE_ON_DOCK"]);
+
     }
     else
     {
@@ -923,6 +1228,8 @@ void MainWindow::prepareGui()
     {
         ui->lineEdit_72->setEnabled(true);
         ui->checkBox_331->setChecked(true);
+        ui->lineEdit_72->setText(values["DEVICES_TO_ENABLE_ON_UNDOCK"]);
+
     }
     else
     {
@@ -934,6 +1241,8 @@ void MainWindow::prepareGui()
     {
         ui->lineEdit_71->setEnabled(true);
         ui->checkBox_330->setChecked(true);
+        ui->lineEdit_71->setText(values["DEVICES_TO_DISABLE_ON_UNDOCK"]);
+
     }
     else
     {
@@ -1311,4 +1620,9 @@ void MainWindow::on_checkBox_331_clicked()
 void MainWindow::on_checkBox_330_clicked()
 {
     setActivate(ui->checkBox_330->isChecked(),"DEVICES_TO_DISABLE_ON_UNDOCK");
+}
+
+void MainWindow::on_checkBox_69_clicked()
+{
+
 }
