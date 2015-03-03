@@ -7,8 +7,7 @@
 #include <QDebug>
 #include <QStringList>
 #include <QMap>
-#include <QListView>
-#include <QStandardItemModel>
+#include "about.h"
 
 namespace Ui {
 class MainWindow;
@@ -23,6 +22,8 @@ public:
     ~MainWindow();
 
 private slots:
+    void about();
+    void quit();
     void on_cb_tlp_active_clicked();
 
     void on_cb_cpu_scaling_governor_on_ac_clicked();
@@ -217,14 +218,136 @@ private slots:
 
     void on_checkBox_66_clicked();
 
+    void on_spinBox_9_editingFinished();
+
+    void on_spinBox_10_editingFinished();
+
+    void on_spinBox_editingFinished();
+
+    void on_spinBox_2_editingFinished();
+
+    void on_spinBox_3_editingFinished();
+
+    void on_spinBox_4_editingFinished();
+
+    void on_spinBox_5_editingFinished();
+
+    void on_spinBox_6_editingFinished();
+
+    void on_spinBox_8_editingFinished();
+
+    void on_spinBox_7_editingFinished();
+
+    void on_lineEdit_editingFinished();
+
+    void on_lineEdit_2_editingFinished();
+
+    void on_lineEdit_3_editingFinished();
+
+    void on_lineEdit_4_editingFinished();
+
+    void on_lineEdit_5_editingFinished();
+
+    void on_lineEdit_6_editingFinished();
+
+    void on_lineEdit_7_editingFinished();
+
+    void on_lineEdit_8_editingFinished();
+
+    void on_lineEdit_9_editingFinished();
+
+    void on_lineEdit_11_editingFinished();
+
+    void on_lineEdit_12_editingFinished();
+
+    void on_lineEdit_25_editingFinished();
+
+    void on_lineEdit_26_editingFinished();
+
+    void on_lineEdit_27_editingFinished();
+
+    void on_lineEdit_28_editingFinished();
+
+    void on_lineEdit_29_editingFinished();
+
+    void on_lineEdit_47_editingFinished();
+
+    void on_lineEdit_48_editingFinished();
+
+    void on_lineEdit_49_editingFinished();
+
+    void on_lineEdit_70_editingFinished();
+
+    void on_lineEdit_72_editingFinished();
+
+    void on_lineEdit_71_editingFinished();
+
+    void on_spinBox_11_editingFinished();
+
+    void on_spinBox_12_editingFinished();
+
+    void on_spinBox_13_editingFinished();
+
+    void on_spinBox_14_editingFinished();
+
+    void on_btn_save_clicked();
+
+    void on_comboBox_2_currentIndexChanged(const QString &arg1);
+
+    void on_comboBox_currentIndexChanged(const QString &arg1);
+
+    void on_comboBox_3_currentIndexChanged(const QString &arg1);
+
+    void on_comboBox_4_currentIndexChanged(const QString &arg1);
+
+    void on_comboBox_6_editTextChanged(const QString &arg1);
+
+    void on_comboBox_7_editTextChanged(const QString &arg1);
+
+    void on_comboBox_8_editTextChanged(const QString &arg1);
+
+    void on_comboBox_9_editTextChanged(const QString &arg1);
+
+    void on_comboBox_10_editTextChanged(const QString &arg1);
+
+    void on_comboBox_5_currentIndexChanged(const QString &arg1);
+
+    void on_comboBox_11_currentIndexChanged(const QString &arg1);
+
+    void on_comboBox_12_currentIndexChanged(const QString &arg1);
+
+    void on_comboBox_13_currentIndexChanged(const QString &arg1);
+
+    void on_comboBox_14_currentIndexChanged(const QString &arg1);
+
+    void on_comboBox_15_currentIndexChanged(const QString &arg1);
+
+    void on_comboBox_16_currentIndexChanged(const QString &arg1);
+
+    void on_comboBox_17_currentIndexChanged(const QString &arg1);
+
+    void on_comboBox_18_currentIndexChanged(const QString &arg1);
+
+    void on_comboBox_19_currentIndexChanged(const QString &arg1);
+
+    void on_comboBox_20_currentIndexChanged(const QString &arg1);
+
+    void on_comboBox_21_editTextChanged(const QString &arg1);
+
+    void on_comboBox_22_editTextChanged(const QString &arg1);
+
+    void on_actionAbout_triggered();
+
+    void on_actionQuit_triggered();
+
 private:
     Ui::MainWindow *ui;
+    About ab;
     QStringList data;
     QStringList markedLines;
     QMap<QString,QString> values;
     QMap<QString,double> valueActive;
-    QListView* pView = new QListView();
-    QStandardItemModel* pModel = new QStandardItemModel();
+    QFile file;
     void loadMarkedLines();
     void readConfig();
     void prepareGui();

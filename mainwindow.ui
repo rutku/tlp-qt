@@ -18,7 +18,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>9</number>
+       <number>10</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -36,7 +36,7 @@
              <x>0</x>
              <y>0</y>
              <width>722</width>
-             <height>435</height>
+             <height>375</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -528,7 +528,7 @@ goes idle before doing a sync (BAT)</string>
              <x>0</x>
              <y>0</y>
              <width>722</width>
-             <height>435</height>
+             <height>375</height>
             </rect>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_19">
@@ -745,9 +745,6 @@ goes idle before doing a sync (BAT)</string>
                 </item>
                 <item>
                  <widget class="QComboBox" name="comboBox_5">
-                  <property name="editable">
-                   <bool>true</bool>
-                  </property>
                   <item>
                    <property name="text">
                     <string>noop</string>
@@ -778,9 +775,6 @@ goes idle before doing a sync (BAT)</string>
                 </item>
                 <item>
                  <widget class="QComboBox" name="comboBox_11">
-                  <property name="editable">
-                   <bool>true</bool>
-                  </property>
                   <item>
                    <property name="text">
                     <string>min_power</string>
@@ -811,9 +805,6 @@ goes idle before doing a sync (BAT)</string>
                 </item>
                 <item>
                  <widget class="QComboBox" name="comboBox_12">
-                  <property name="editable">
-                   <bool>true</bool>
-                  </property>
                   <item>
                    <property name="text">
                     <string>min_power</string>
@@ -857,7 +848,7 @@ goes idle before doing a sync (BAT)</string>
              <x>0</x>
              <y>0</y>
              <width>722</width>
-             <height>435</height>
+             <height>375</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -1025,7 +1016,7 @@ goes idle before doing a sync (BAT)</string>
              <x>0</x>
              <y>0</y>
              <width>722</width>
-             <height>435</height>
+             <height>375</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_11">
@@ -1241,7 +1232,7 @@ goes idle before doing a sync (BAT)</string>
              <x>0</x>
              <y>0</y>
              <width>722</width>
-             <height>435</height>
+             <height>375</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -1321,7 +1312,7 @@ goes idle before doing a sync (BAT)</string>
              <x>0</x>
              <y>0</y>
              <width>722</width>
-             <height>435</height>
+             <height>375</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -1401,7 +1392,7 @@ goes idle before doing a sync (BAT)</string>
              <x>0</x>
              <y>0</y>
              <width>722</width>
-             <height>435</height>
+             <height>375</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_18">
@@ -1471,7 +1462,7 @@ goes idle before doing a sync (BAT)</string>
              <x>0</x>
              <y>0</y>
              <width>722</width>
-             <height>435</height>
+             <height>375</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -1600,7 +1591,7 @@ goes idle before doing a sync (BAT)</string>
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>-404</y>
+             <y>0</y>
              <width>708</width>
              <height>839</height>
             </rect>
@@ -1901,7 +1892,7 @@ undocked</string>
              <x>0</x>
              <y>0</y>
              <width>722</width>
-             <height>435</height>
+             <height>375</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_21">
@@ -1991,6 +1982,40 @@ undocked</string>
     </item>
    </layout>
   </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>764</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionQuit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

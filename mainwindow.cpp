@@ -6,6 +6,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    //"/etc/default/tlp";
+    file.setFileName("/home/rutku/Belgeler/tlp");
     loadMarkedLines();
     readConfig();
     prepareGui();
@@ -14,6 +16,16 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::about()
+{
+    qDebug()<<"Hakkında";
+}
+
+void MainWindow::quit()
+{
+    qDebug()<<"Çıkış";
 }
 
 void MainWindow::loadMarkedLines()
@@ -49,14 +61,12 @@ void MainWindow::loadMarkedLines()
     for (int i = 0; i < markedLines.size(); ++i) {
         values.insert(markedLines.at(i),"");
         valueActive.insert(markedLines.at(i),false);
-//        qDebug()<<markedLines.at(i).toLower();
     }
 }
 
 void MainWindow::readConfig()
 {
-    //QFile file("/etc/default/tlp");
-    QFile file("/home/rutku/Belgeler/tlp");
+
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
              return;
 
@@ -79,6 +89,71 @@ void MainWindow::readConfig()
 
         }
     }
+    file.close();
+}
+
+void MainWindow::on_btn_save_clicked()
+{
+    for (int i = 0; i < data.size(); ++i) {
+        for (int j = 0; j < markedLines.size(); ++j) {
+            QString word = markedLines.at(j);
+            if (data.at(i).contains(word)) {
+                QStringList splitLine=data.at(i).split("=");
+                QString orgDefine= splitLine.at(0);
+                QString orgValue = splitLine.at(1);
+
+                if (orgDefine.at(0) =='#') {
+                    if (valueActive[word]) {
+                        orgDefine.remove('#');
+                    }
+
+                    QString tmpValue=values[word];
+                    if (orgValue.indexOf(QChar('"'))>-1) {
+                        tmpValue.prepend('"');
+                        tmpValue.append('"');
+                    }
+                    orgValue = tmpValue;
+                    QString newValue = QString("%1=%2").arg(orgDefine)
+                            .arg(orgValue);
+                    data.removeAt(i);
+                    data.insert(i,newValue);
+
+                }else
+                {
+                    if (!valueActive[word]) {
+                        orgDefine.prepend('#');
+                    }
+
+                    QString tmpValue=values[word];
+                    if (orgValue.indexOf(QChar('"'))>-1) {
+                        tmpValue.prepend('"');
+                        tmpValue.append('"');
+                    }
+                    orgValue = tmpValue;
+                    QString newValue = QString("%1=%2").arg(orgDefine)
+                            .arg(orgValue);
+                    data.removeAt(i);
+                    data.insert(i,newValue);
+                }
+            }
+        }
+    }
+
+    file.open(QIODevice::WriteOnly | QIODevice::Text);
+    QTextStream out(&file);
+    for (int i = 0; i < data.size(); ++i) {
+        out << data.at(i)<< "\n";
+    }
+    file.close();
+}
+
+void MainWindow::setActivate(bool b, QString value)
+{
+    if (b)
+        valueActive[value]=true;
+    else
+        valueActive[value]=false;
+    prepareGui();
 }
 
 void MainWindow::prepareGui()
@@ -1296,15 +1371,7 @@ void MainWindow::prepareGui()
     }
 }
 
-void MainWindow::setActivate(bool b, QString value)
-{
-    if (b)
-        valueActive[value]=true;
-    else
-        valueActive[value]=false;
-    prepareGui();
 
-}
 
 void MainWindow::setCheckBoxValue(bool b, QString value, QString t, QString f)
 {
@@ -1799,4 +1866,304 @@ void MainWindow::on_checkBox_64_clicked()
 void MainWindow::on_checkBox_66_clicked()
 {
     setCheckBoxValue(ui->checkBox_66->isChecked(),"USB_AUTOSUSPEND_DISABLE_ON_SHUTDOWN","1","0");
+}
+
+void MainWindow::on_spinBox_9_editingFinished()
+{
+    values["MAX_LOST_WORK_SECS_ON_AC"]=QString::number(ui->spinBox_9->value());
+}
+
+void MainWindow::on_spinBox_10_editingFinished()
+{
+    values["MAX_LOST_WORK_SECS_ON_BAT"]=QString::number(ui->spinBox_10->value());
+}
+
+void MainWindow::on_spinBox_editingFinished()
+{
+    values["CPU_SCALING_MIN_FREQ_ON_AC"]=QString::number(ui->spinBox->value());
+}
+
+void MainWindow::on_spinBox_2_editingFinished()
+{
+    values["CPU_SCALING_MAX_FREQ_ON_AC"]=QString::number(ui->spinBox_2->value());
+}
+
+void MainWindow::on_spinBox_3_editingFinished()
+{
+    values["CPU_SCALING_MIN_FREQ_ON_BAT"]=QString::number(ui->spinBox_3->value());
+}
+
+void MainWindow::on_spinBox_4_editingFinished()
+{
+    values["CPU_SCALING_MAX_FREQ_ON_BAT"]=QString::number(ui->spinBox_4->value());
+}
+
+void MainWindow::on_spinBox_5_editingFinished()
+{
+    values["CPU_MIN_PERF_ON_AC"]=QString::number(ui->spinBox_5->value());
+}
+
+void MainWindow::on_spinBox_6_editingFinished()
+{
+    values["CPU_MAX_PERF_ON_AC"]=QString::number(ui->spinBox_6->value());
+}
+
+void MainWindow::on_spinBox_8_editingFinished()
+{
+    values["CPU_MIN_PERF_ON_BAT"]=QString::number(ui->spinBox_8->value());
+}
+
+void MainWindow::on_spinBox_7_editingFinished()
+{
+    values["CPU_MAX_PERF_ON_BAT"]=QString::number(ui->spinBox_7->value());
+}
+
+void MainWindow::on_lineEdit_editingFinished()
+{
+    values["PHC_CONTROLS"]=ui->lineEdit->text();
+}
+
+void MainWindow::on_lineEdit_2_editingFinished()
+{
+    values["RUNTIME_PM_BLACKLIST"]=ui->lineEdit_2->text();
+}
+
+void MainWindow::on_lineEdit_3_editingFinished()
+{
+    values["RUNTIME_PM_DRIVER_BLACKLIST"]=ui->lineEdit_3->text();
+}
+
+void MainWindow::on_lineEdit_4_editingFinished()
+{
+    values["USB_BLACKLIST"]=ui->lineEdit_4->text();
+}
+
+void MainWindow::on_lineEdit_5_editingFinished()
+{
+    values["USB_WHITELIST"]=ui->lineEdit_5->text();
+}
+
+void MainWindow::on_lineEdit_6_editingFinished()
+{
+    values["DEVICES_TO_DISABLE_ON_STARTUP"]=ui->lineEdit_6->text();
+}
+
+void MainWindow::on_lineEdit_7_editingFinished()
+{
+    values["DEVICES_TO_ENABLE_ON_STARTUP"]=ui->lineEdit_7->text();
+}
+
+void MainWindow::on_lineEdit_8_editingFinished()
+{
+    values["DEVICES_TO_DISABLE_ON_SHUTDOWN"]=ui->lineEdit_8->text();
+}
+
+void MainWindow::on_lineEdit_9_editingFinished()
+{
+    values["DEVICES_TO_ENABLE_ON_SHUTDOWN"]=ui->lineEdit_9->text();
+}
+
+void MainWindow::on_lineEdit_11_editingFinished()
+{
+    values["DEVICES_TO_ENABLE_ON_AC"]=ui->lineEdit_11->text();
+}
+
+void MainWindow::on_lineEdit_12_editingFinished()
+{
+    values["DEVICES_TO_DISABLE_ON_BAT"]=ui->lineEdit_12->text();
+}
+
+void MainWindow::on_lineEdit_25_editingFinished()
+{
+    values["DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE"]=ui->lineEdit_25->text();
+}
+
+void MainWindow::on_lineEdit_26_editingFinished()
+{
+    values["DEVICES_TO_DISABLE_ON_LAN_CONNECT"]=ui->lineEdit_26->text();
+}
+
+void MainWindow::on_lineEdit_27_editingFinished()
+{
+    values["DEVICES_TO_DISABLE_ON_WIFI_CONNECT"]=ui->lineEdit_27->text();
+}
+
+void MainWindow::on_lineEdit_28_editingFinished()
+{
+    values["DEVICES_TO_DISABLE_ON_WWAN_CONNECT"]=ui->lineEdit_28->text();
+}
+
+void MainWindow::on_lineEdit_29_editingFinished()
+{
+    values["DEVICES_TO_ENABLE_ON_LAN_DISCONNECT"]=ui->lineEdit_29->text();
+}
+
+void MainWindow::on_lineEdit_47_editingFinished()
+{
+    values["DEVICES_TO_ENABLE_ON_WIFI_DISCONNECT"]=ui->lineEdit_47->text();
+}
+
+void MainWindow::on_lineEdit_48_editingFinished()
+{
+    values["DEVICES_TO_ENABLE_ON_WWAN_DISCONNECT"]=ui->lineEdit_48->text();
+}
+
+void MainWindow::on_lineEdit_49_editingFinished()
+{
+    values["DEVICES_TO_ENABLE_ON_DOCK"]=ui->lineEdit_49->text();
+}
+
+void MainWindow::on_lineEdit_70_editingFinished()
+{
+    values["DEVICES_TO_DISABLE_ON_DOCK"]=ui->lineEdit_70->text();
+}
+
+void MainWindow::on_lineEdit_72_editingFinished()
+{
+    values["DEVICES_TO_ENABLE_ON_UNDOCK"]=ui->lineEdit_72->text();
+}
+
+void MainWindow::on_lineEdit_71_editingFinished()
+{
+    values["DEVICES_TO_DISABLE_ON_UNDOCK"]=ui->lineEdit_71->text();
+}
+
+void MainWindow::on_spinBox_11_editingFinished()
+{
+    values["START_CHARGE_THRESH_BAT0"]=QString::number(ui->spinBox_11->value());
+}
+
+void MainWindow::on_spinBox_12_editingFinished()
+{
+    values["STOP_CHARGE_THRESH_BAT0"]=QString::number(ui->spinBox_12->value());
+}
+
+void MainWindow::on_spinBox_13_editingFinished()
+{
+    values["START_CHARGE_THRESH_BAT1"]=QString::number(ui->spinBox_13->value());
+}
+
+void MainWindow::on_spinBox_14_editingFinished()
+{
+    values["STOP_CHARGE_THRESH_BAT1"]=QString::number(ui->spinBox_13->value());
+}
+
+void MainWindow::on_comboBox_currentIndexChanged(const QString &arg1)
+{
+    values["CPU_SCALING_GOVERNOR_ON_AC"]=arg1;
+}
+
+void MainWindow::on_comboBox_2_currentIndexChanged(const QString &arg1)
+{
+    values["CPU_SCALING_GOVERNOR_ON_BAT"]=arg1;
+}
+
+void MainWindow::on_comboBox_3_currentIndexChanged(const QString &arg1)
+{
+    values["ENERGY_PERF_POLICY_ON_AC"]=arg1;
+}
+
+void MainWindow::on_comboBox_4_currentIndexChanged(const QString &arg1)
+{
+    values["ENERGY_PERF_POLICY_ON_BAT"]=arg1;
+}
+
+void MainWindow::on_comboBox_6_editTextChanged(const QString &arg1)
+{
+    values["DISK_DEVICES"]=arg1;
+}
+
+void MainWindow::on_comboBox_7_editTextChanged(const QString &arg1)
+{
+    values["DISK_APM_LEVEL_ON_AC"]=arg1;
+}
+
+void MainWindow::on_comboBox_8_editTextChanged(const QString &arg1)
+{
+    values["DISK_APM_LEVEL_ON_BAT"]=arg1;
+}
+
+void MainWindow::on_comboBox_9_editTextChanged(const QString &arg1)
+{
+    values["DISK_SPINDOWN_TIMEOUT_ON_AC"]=arg1;
+}
+
+void MainWindow::on_comboBox_10_editTextChanged(const QString &arg1)
+{
+    values["DISK_SPINDOWN_TIMEOUT_ON_BAT"]=arg1;
+}
+
+void MainWindow::on_comboBox_5_currentIndexChanged(const QString &arg1)
+{
+    values["DISK_IOSCHED"]=arg1;
+}
+
+void MainWindow::on_comboBox_11_currentIndexChanged(const QString &arg1)
+{
+    values["SATA_LINKPWR_ON_AC"]=arg1;
+}
+
+void MainWindow::on_comboBox_12_currentIndexChanged(const QString &arg1)
+{
+    values["SATA_LINKPWR_ON_BAT"]=arg1;
+}
+
+void MainWindow::on_comboBox_13_currentIndexChanged(const QString &arg1)
+{
+    values["PCIE_ASPM_ON_AC"]=arg1;
+}
+
+void MainWindow::on_comboBox_14_currentIndexChanged(const QString &arg1)
+{
+    values["PCIE_ASPM_ON_BAT"]=arg1;
+}
+
+void MainWindow::on_comboBox_15_currentIndexChanged(const QString &arg1)
+{
+    values["RADEON_POWER_PROFILE_ON_AC"]=arg1;
+}
+
+void MainWindow::on_comboBox_16_currentIndexChanged(const QString &arg1)
+{
+    values["RADEON_POWER_PROFILE_ON_BAT"]=arg1;
+}
+
+void MainWindow::on_comboBox_17_currentIndexChanged(const QString &arg1)
+{
+    values["RADEON_DPM_STATE_ON_AC"]=arg1;
+}
+
+void MainWindow::on_comboBox_18_currentIndexChanged(const QString &arg1)
+{
+    values["RADEON_DPM_STATE_ON_BAT"]=arg1;
+}
+
+void MainWindow::on_comboBox_19_currentIndexChanged(const QString &arg1)
+{
+    values["RADEON_DPM_PERF_LEVEL_ON_AC"]=arg1;
+}
+
+void MainWindow::on_comboBox_20_currentIndexChanged(const QString &arg1)
+{
+    values["RADEON_DPM_PERF_LEVEL_ON_BAT"]=arg1;
+}
+
+void MainWindow::on_comboBox_21_editTextChanged(const QString &arg1)
+{
+    values["BAY_DEVICE"]=arg1;
+}
+
+void MainWindow::on_comboBox_22_editTextChanged(const QString &arg1)
+{
+    values["USB_DRIVER_BLACKLIST"]=arg1;
+}
+
+void MainWindow::on_actionAbout_triggered()
+{
+    ab.exec();
+}
+
+void MainWindow::on_actionQuit_triggered()
+{
+    close();
 }
