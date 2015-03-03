@@ -177,6 +177,46 @@ private slots:
 
     void on_checkBox_84_clicked();
 
+    void on_checkBox_74_clicked();
+
+    void on_checkBox_80_clicked();
+
+    void on_checkBox_clicked();
+
+    void on_checkBox_18_clicked();
+
+    void on_checkBox_19_clicked();
+
+    void on_checkBox_20_clicked();
+
+    void on_checkBox_21_clicked();
+
+    void on_checkBox_54_clicked();
+
+    void on_checkBox_79_clicked();
+
+    void on_checkBox_56_clicked();
+
+    void on_checkBox_39_clicked();
+
+    void on_checkBox_41_clicked();
+
+    void on_checkBox_43_clicked();
+
+    void on_checkBox_45_clicked();
+
+    void on_checkBox_47_clicked();
+
+    void on_checkBox_49_clicked();
+
+    void on_checkBox_51_clicked();
+
+    void on_checkBox_60_clicked();
+
+    void on_checkBox_64_clicked();
+
+    void on_checkBox_66_clicked();
+
 private:
     Ui::MainWindow *ui;
     QStringList data;
@@ -189,6 +229,7 @@ private:
     void readConfig();
     void prepareGui();
     void setActivate(bool b,QString value);
+    void setCheckBoxValue(bool b,QString value,QString t,QString f);
 };
 
 #endif // MAINWINDOW_H

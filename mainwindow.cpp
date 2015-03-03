@@ -1306,10 +1306,19 @@ void MainWindow::setActivate(bool b, QString value)
 
 }
 
+void MainWindow::setCheckBoxValue(bool b, QString value, QString t, QString f)
+{
+    if (b)
+        values[value]=t;
+    else
+        values[value]=f;
+
+}
+
 
 void MainWindow::on_cb_tlp_active_clicked()
 {
-    setActivate(ui->cb_tlp_active->isChecked(),"TLP_ENABLE");
+    setCheckBoxValue(ui->cb_tlp_active->isChecked(),"TLP_ENABLE","1","0");
 }
 
 void MainWindow::on_cb_cpu_scaling_governor_on_ac_clicked()
@@ -1669,7 +1678,7 @@ void MainWindow::on_checkBox_330_clicked()
 
 void MainWindow::on_checkBox_69_clicked()
 {
-
+    setCheckBoxValue(ui->checkBox_69->isChecked(),"RESTORE_DEVICE_STATE_ON_STARTUP","1","0");
 }
 
 void MainWindow::on_checkBox_81_clicked()
@@ -1690,4 +1699,104 @@ void MainWindow::on_checkBox_83_clicked()
 void MainWindow::on_checkBox_84_clicked()
 {
     setActivate(ui->checkBox_84->isChecked(),"STOP_CHARGE_THRESH_BAT1");
+}
+
+void MainWindow::on_checkBox_74_clicked()
+{
+    setCheckBoxValue(ui->checkBox_74->isChecked(),"DISK_IDLE_SECS_ON_AC","2","0");
+}
+
+void MainWindow::on_checkBox_80_clicked()
+{
+    setCheckBoxValue(ui->checkBox_80->isChecked(),"DISK_IDLE_SECS_ON_BAT","2","0");
+}
+
+void MainWindow::on_checkBox_clicked()
+{
+    setCheckBoxValue(ui->checkBox->isChecked(),"CPU_BOOST_ON_AC","1","0");
+}
+
+void MainWindow::on_checkBox_18_clicked()
+{
+    setCheckBoxValue(ui->checkBox_18->isChecked(),"CPU_BOOST_ON_BAT","1","0");
+}
+
+void MainWindow::on_checkBox_19_clicked()
+{
+    setCheckBoxValue(ui->checkBox_19->isChecked(),"SCHED_POWERSAVE_ON_AC","1","0");
+}
+
+void MainWindow::on_checkBox_20_clicked()
+{
+    setCheckBoxValue(ui->checkBox_20->isChecked(),"SCHED_POWERSAVE_ON_BAT","1","0");
+}
+
+void MainWindow::on_checkBox_21_clicked()
+{
+    setCheckBoxValue(ui->checkBox_21->isChecked(),"NMI_WATCHDOG","1","0");
+}
+
+void MainWindow::on_checkBox_54_clicked()
+{
+    setCheckBoxValue(ui->checkBox_54->isChecked(),"RUNTIME_PM_ON_AC","auto","on");
+}
+
+void MainWindow::on_checkBox_79_clicked()
+{
+    setCheckBoxValue(ui->checkBox_79->isChecked(),"RUNTIME_PM_ON_BAT","auto","on");
+}
+
+void MainWindow::on_checkBox_56_clicked()
+{
+    setCheckBoxValue(ui->checkBox_56->isChecked(),"RUNTIME_PM_ALL","1","0");
+}
+
+void MainWindow::on_checkBox_39_clicked()
+{
+    setCheckBoxValue(ui->checkBox_39->isChecked(),"WIFI_PWR_ON_AC","5","1");
+}
+
+void MainWindow::on_checkBox_41_clicked()
+{
+    setCheckBoxValue(ui->checkBox_41->isChecked(),"WIFI_PWR_ON_BAT","5","1");
+}
+
+void MainWindow::on_checkBox_43_clicked()
+{
+    setCheckBoxValue(ui->checkBox_43->isChecked(),"WOL_DISABLE","Y","N");
+}
+
+void MainWindow::on_checkBox_45_clicked()
+{
+    setCheckBoxValue(ui->checkBox_45->isChecked(),"SOUND_POWER_SAVE_ON_AC","1","0");
+}
+
+void MainWindow::on_checkBox_47_clicked()
+{
+    setCheckBoxValue(ui->checkBox_47->isChecked(),"SOUND_POWER_SAVE_ON_BAT","1","0");
+}
+
+void MainWindow::on_checkBox_49_clicked()
+{
+    setCheckBoxValue(ui->checkBox_49->isChecked(),"SOUND_POWER_SAVE_CONTROLLER","Y","N");
+}
+
+void MainWindow::on_checkBox_51_clicked()
+{
+    setCheckBoxValue(ui->checkBox_51->isChecked(),"BAY_POWEROFF_ON_BAT","1","0");
+}
+
+void MainWindow::on_checkBox_60_clicked()
+{
+    setCheckBoxValue(ui->checkBox_60->isChecked(),"USB_AUTOSUSPEND","1","0");
+}
+
+void MainWindow::on_checkBox_64_clicked()
+{
+    setCheckBoxValue(ui->checkBox_64->isChecked(),"USB_BLACKLIST_WWAN","1","0");
+}
+
+void MainWindow::on_checkBox_66_clicked()
+{
+    setCheckBoxValue(ui->checkBox_66->isChecked(),"USB_AUTOSUSPEND_DISABLE_ON_SHUTDOWN","1","0");
 }

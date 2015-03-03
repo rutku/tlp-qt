@@ -14,11 +14,11 @@
    <string>TLP-Qt Alpha</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_61">
+   <layout class="QVBoxLayout" name="verticalLayout_22">
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>10</number>
+       <number>9</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -1600,7 +1600,7 @@ goes idle before doing a sync (BAT)</string>
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
+             <y>-404</y>
              <width>708</width>
              <height>839</height>
             </rect>
@@ -1980,6 +1980,13 @@ undocked</string>
         </item>
        </layout>
       </widget>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btn_save">
+      <property name="text">
+       <string>Save</string>
+      </property>
      </widget>
     </item>
    </layout>
