@@ -22,8 +22,6 @@ public:
     ~MainWindow();
 
 private slots:
-    void about();
-    void quit();
     void on_cb_tlp_active_clicked();
 
     void on_cb_cpu_scaling_governor_on_ac_clicked();

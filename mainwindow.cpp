@@ -6,8 +6,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //"/etc/default/tlp";
-    file.setFileName("/home/rutku/Belgeler/tlp");
+    file.setFileName("/etc/default/tlp");
     loadMarkedLines();
     readConfig();
     prepareGui();
@@ -16,16 +15,6 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-void MainWindow::about()
-{
-    qDebug()<<"Hakkında";
-}
-
-void MainWindow::quit()
-{
-    qDebug()<<"Çıkış";
 }
 
 void MainWindow::loadMarkedLines()
